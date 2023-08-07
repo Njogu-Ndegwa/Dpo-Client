@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit{
       this.loading = false
       Object.entries(res).forEach(([key, value]) => {
         localStorage.setItem('token', value['token'])
+        localStorage.setItem('email', value['email'])
       });
       this.loginForm.reset()
       setTimeout(() => {

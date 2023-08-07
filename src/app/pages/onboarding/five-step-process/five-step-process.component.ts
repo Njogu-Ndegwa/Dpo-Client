@@ -35,15 +35,15 @@ export class FiveStepProcessComponent implements OnInit {
       { status: 'Get Contacts', class: 'step04', active: '' }
     ]
 
-
-    this.personObject = {
-      email: "deun7098609@gmail.com",
-      phone: "05455546546",
-      first_name: "Dennis Njogu"
-    }
   }
 
   ngOnInit(): void {
+    let email = localStorage.getItem('email')
+    this.personObject = {
+      email: email,
+      phone: "05455546546",
+      first_name: "Dennis Njogu"
+    }
     this.fiveStepProcessService.getTemplatesService().subscribe((res) => {
       console.log(res, 'Templates')
       this.items = res
