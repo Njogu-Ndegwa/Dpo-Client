@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
   baseUrl: 'diy.infomoby.com',
-  api: 'https://diy.infomoby.com/api/',
+  api: 'https://diy-api.infomoby.com/api/',
 };
 
 
