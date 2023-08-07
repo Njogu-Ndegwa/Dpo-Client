@@ -1,0 +1,38 @@
+<div class="main-div">
+    <div style="margin-right: 2rem;" class="call-to-action">
+        <div class="content-container">
+            <div class="content">
+                <p>Create beautiful websites with no code</p>
+                <div *ngIf="isEdit === false" class="button-style">
+                    <button (click)="createSitesNoCode()">START HERE</button>
+                </div>
+                <div *ngIf="isEdit === true" class="button-style">
+                    <button (click)="editSite()">Edit Site</button>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="bottom-text-container">
+            <div class="bottom-text">
+                <p>Easily design a professional website without any coding experience!</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="call-to-action">
+        <div class="content-container">
+            <div class="content">
+                <p>Get in touch with our professionals to help you</p>
+                <div class="button-style">
+                    <button>HIRE A PROFESSIONAL</button>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="bottom-text-container">
+            <div class="bottom-text">
+                <p>Contact our experts to build stunning websites from scratch according to your liking!</p>
+            </div>
+        </div>
+    </div>
+</div>

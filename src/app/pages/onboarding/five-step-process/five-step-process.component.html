@@ -1,0 +1,198 @@
+<div class="body">
+    <div class="content-container" *ngIf="currentTab === 1">
+        <div class="content">
+            <div class="content-body-container">
+                <div class="content-body">
+                    <h1>What's the name of your business or project?</h1>
+                    <p>You can give this project your name, business name or how people can find you online</p>
+                </div>
+            </div>
+            <div class="input">
+                <!-- <mat-form-field class="example-full-width"> -->
+                    <input [(ngModel)]="businessName" placeholder="For Example Jane's Restaurant">
+                <!-- </mat-form-field> -->
+
+            </div>
+        </div>
+    </div>
+
+    <div class="section-wrapper" *ngIf="currentTab === 2">
+        <div class="content-container">
+            <div class="content">
+                <div class="content-body-container">
+                    <div class="content-body">
+                        <h1>What template does your website require?</h1>
+                        <p>Choose a template for your Website</p>
+                    </div>
+                </div>
+                <div class="recommendations">
+                    <div class="row">
+                        <div class="col-md-3" *ngFor="let item of items">
+                            <div (click)="toggleIcon(item.template_id)">
+                                <img [src]="item.desktop_thumbnail_url" alt="Item Thumbnail" class="item-thumbnail">
+                                <i class="fa-solid fa-circle-check" [hidden]="!isIconVisible(item.template_id)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="content-body">
+                        <div class="first-line">
+                            <span class="recommended">Recommended</span>
+                            <div class="section-container">
+                                <div class="section" (click)="toggleSection('about')"
+                                    [ngClass]="{ 'active': activeSection === 'about' }">
+                                    <p>About</p>
+                                    <span>
+                                        <i class="fa-solid fa-circle-check" *ngIf="activeSection === 'about'"></i>
+                                    </span>
+                                </div>
+                                <div class="section" (click)="toggleSection('services')"
+                                    [ngClass]="{ 'active': activeSection === 'services' }">
+                                    <p>Services</p>
+                                    <span>
+                                        <i class="fa-solid fa-circle-check" *ngIf="activeSection === 'services'"></i>
+                                    </span>
+                                </div>
+                                <div class="section" (click)="toggleSection('contact')"
+                                    [ngClass]="{ 'active': activeSection === 'contact' }">
+                                    <p>Contact</p>
+                                    <span>
+                                        <i class="fa-solid fa-circle-check" *ngIf="activeSection === 'contact'"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="second-line">
+                            <span class="recommended">Others...</span>
+                            <div class="section-container">
+                                <div class="section">
+                                    <p>News</p>
+
+                                </div>
+                                <div class="section">
+                                    <p>Blog</p>
+                                </div>
+                                <div class="section">
+                                    <p>Gallery</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="theme-wrapper" *ngIf="currentTab === 3">
+        <div class="content-container">
+            <div class="content">
+                <div class="content-body-container">
+                    <div class="content-body">
+                        <h1>Choose a theme that suits your business</h1>
+                        <p>This will help us in identifying the most suitable style
+                            that fits your business and communicates to your audience</p>
+                    </div>
+                </div>
+                <div class="recommendations">
+                    <div class="content-body">
+                        <div class="first-line">
+                            <span class="recommended">Recommended</span>
+                            <div class="section-container">
+                                <div class="section" (click)="toggleTheme('modern')">
+                                    <p>Modern</p>
+                                    <span>
+                                        <i class="fa-solid fa-circle-check" *ngIf="activeSection === 'modern'"></i>
+                                    </span>
+                                </div>
+                                <div class="section" (click)="toggleTheme('playful')">
+                                    <p>Playful</p>
+                                    <span>
+                                        <i class="fa-solid fa-circle-check" *ngIf="activeSection === 'playful'"></i>
+                                    </span>
+                                </div>
+                                <div class="section" (click)="toggleTheme('proffesional')">
+                                    <p>Proffesional</p>
+                                    <span>
+                                        <i class="fa-solid fa-circle-check"
+                                            *ngIf="activeSection === 'proffesional'"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="review-wrapper" *ngIf="currentTab === 4">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-6 left-side">
+                    <div class="content">
+                        <div class="heading">
+                            <h1>Review and edit your info</h1>
+                        </div>
+                        <p>This will help us in identifying the most suitable
+                            style that fits your business and comunicates to your audience</p>
+                    </div>
+                </div>
+                <div class="col-6 right-side">
+                    <div class="content">
+                        <!-- <div class="input-group input-file">
+                            <p>Logo</p>
+
+                            <div class="file-upload">
+                                <label for="file-upload" style="cursor: pointer;">
+                                    ADD LOGO
+                                </label>
+
+                                <input id="file-upload" type="file" class="file" (change)="onFileSelected($event)"
+                                    style="display: none;" />
+                                <div for="file-upload"><i style="cursor: pointer;" class="fa-solid fa-plus"></i></div>
+                            </div> -->
+                        <!-- </div> -->
+                        <!-- </div> -->
+                        <div class="input-group">
+                            <p>Business Name</p>
+                            <input type="text" [value]="businessName" class="custom-input"
+                                placeholder="Enter your name" />
+                        </div>
+                        <div class="input-group">
+                            <p>Email</p>
+                            <input type="text" [(ngModel)]="email" class="custom-input"
+                                placeholder="Enter your Email" />
+                        </div>
+                        <div class="input-group">
+                            <p>Phone</p>
+                            <input type="text" [(ngModel)]="phone" class="custom-input"
+                                placeholder="Enter your Phone" />
+                        </div>
+                        <!-- <div class="input-group">
+                            <p>Address</p>
+                            <input type="text" class="custom-input" placeholder="Enter your Address" />
+                        </div>
+                        <div class="input-group">
+                            <p>Socials</p>
+                            <input type="text" class="custom-input" placeholder="Enter your name" />
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-info">
+        <app-timeline [events]="events" [width]="containerWidth">
+        </app-timeline>
+        <div class="progress-button-container">
+            <div class="progress-buttons">
+                <button (click)="switchTab(-1)" class="back-button"><i class="fa-solid fa-arrow-left icon"></i>
+                    Back</button>
+                <button *ngIf="currentTab < 4" (click)="switchTab(1)" class="continue-button">Continue <i
+                        class="fa-solid fa-arrow-right icon"></i></button>
+                <button (click)="onSubmit()" class="continue-button" *ngIf="currentTab ===4">Done</button>
+            </div>
+        </div>
+    </div>
+</div>

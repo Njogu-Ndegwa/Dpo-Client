@@ -1,0 +1,111 @@
+#progress-bar-container {
+    position: relative;
+    width: 100%;
+    margin: auto;
+    // height: 100px;
+    // margin-top: 65px;
+}
+
+#progress-bar-container ul {
+    padding: 0;
+    margin: 0;
+    // padding-top:15px;
+    z-index: 9999;
+    position: absolute;
+    width: 100%;
+    margin-top: -40px;
+}
+
+.step-inner {
+    margin-bottom: -1rem;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 30px;
+    color: #404040;
+}
+
+#progress-bar-container .step-circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: solid 2px #9CA3AF;
+    background: white;
+    // margin: auto;
+    transition: all ease 0.3s;
+}
+
+#progress-bar-container .step-circle.checked {
+    background: #04A9F4;
+    border: solid 2px #04A9F4;
+}
+
+.progress-icon i.active {
+    color: #04A9F4;
+    font-size: 12px;
+    top: 5px;
+    position: relative;
+}
+
+.progress-icon i.checked {
+    color: white;
+    font-size: 16px;
+    top: 5px;
+    position: relative;
+}
+
+#progress-bar-container li {
+    // list-style: none;
+    // float: left;
+    // width: 20%;
+    // text-align: center;
+    // color: #aaa;
+    // text-transform: uppercase;
+    // font-size: 11px;
+    // cursor: pointer;
+    // font-weight: 700;
+    // transition: all ease 0.2s;
+    // vertical-align: bottom;
+    // height: 60px;
+    // position: relative;
+}
+
+#progress-bar-container li .step-inner {
+    // position: absolute;
+    // width: 100%;
+    // bottom: 0;
+    // font-size: 14px;
+}
+
+#progress-bar-container li.active{
+    // color: #444;
+    // .step-circle {
+    //     border: solid 2px #04A9F4
+    // }
+}
+
+#progress-bar-container #line {
+    // position: fixed;
+    width: 100%;
+    margin: auto;
+    background: #eee;
+    height: 2px;
+    position: absolute;
+    /* top: 57px; */
+	// top: -12px;
+    z-index: 1;
+    border-radius: 50px;
+    transition: all ease 0.9s;
+}
+
+#progress-bar-container #line-progress {
+    content: " ";
+    height: 100%;
+    background: #04A9F4;
+    // background: linear-gradient(to right, #207893 0%, #2ea3b7 100%);
+    position: absolute;
+    z-index: 2;
+    border-radius: 50px;
+    transition: all ease 0.9s;
+}

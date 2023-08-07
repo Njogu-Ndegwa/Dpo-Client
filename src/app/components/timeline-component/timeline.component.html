@@ -1,0 +1,17 @@
+<div class="process-wrapper">
+    <div id="progress-bar-container">
+        <!-- <ul>
+            <li *ngFor="let event of events" class="step {{event.class}} {{event.active}}">
+                <div class="step-inner">{{event.status}}</div>
+                <div class="step-circle {{event.active}}">
+                    <span class="progress-icon">
+                        <i class="{{event.icon}} {{event.active}}"></i>
+                    </span>
+                </div>
+            </li>
+        </ul> -->
+
+        <div id="line">
+            <div id="line-progress" [style.width]="width"></div>
+        </div>
+    </div>
