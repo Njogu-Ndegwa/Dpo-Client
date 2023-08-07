@@ -28,9 +28,10 @@
                 <div class="recommendations">
                     <div class="row">
                         <div class="col-md-3" *ngFor="let item of items">
-                            <div (click)="toggleIcon(item.template_id)">
+                            <div (click)="toggleIcon(item.template_id)" style="position: relative;">
+                                <i class="fa-solid fa-circle-check" [hidden]="!isIconVisible(item.template_id)" style="float: right; position: absolute; left: 5; font-size:22px; margin-left: 14rem; margin-top: 1rem;"></i>
                                 <img [src]="item.desktop_thumbnail_url" alt="Item Thumbnail" class="item-thumbnail">
-                                <i class="fa-solid fa-circle-check" [hidden]="!isIconVisible(item.template_id)"></i>
+                                <!-- <i class="fa-solid fa-circle-check" [hidden]="!isIconVisible(item.template_id)"></i> -->
                             </div>
                         </div>
                     </div>

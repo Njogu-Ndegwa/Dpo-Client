@@ -91,7 +91,6 @@ export class FiveStepProcessComponent implements OnInit {
     } else {
       this.selectedItem = templateId;
     }
-    window.scrollTo(0, document.body.scrollHeight);
   }
 
   isIconVisible(item: any) {
