@@ -20,15 +20,10 @@
                         <h3>Sign In to Continue</h3>
                     </div>
 
-                    <div class="social-buttons">
-                        <button>Sign In with google</button>
+                    <div class="social-buttons" style="display: flex; justify-content: space-between;">
+                        <asl-google-signin-button type='standard' logo_alignment="center"  size='large'></asl-google-signin-button>
 
-
-                        <!-- <button (click)="loginWithGoogle()" mat-raised-button class="google-login-btn">
-                            Google
-                        </button> -->
-
-                        <button style="margin-left: 4.5rem;">Sign In with Facebook</button>
+                        <button type="button" (click)="loginWithFacebook()" > <span class="words">Signin with Facebook </span><span style="color:#264f96; font-size: 26px; margin-left: 2rem;"><i class="fab fa-facebook-square"></i></span></button>
                     </div>
 
                     <div class="middle-section">
@@ -38,9 +33,9 @@
                     <div class="form">
                         <form [formGroup]="loginForm" class="example-form">
                             <!-- <mat-form-field class="example-full-width"> -->
-                                <label>Email</label>
-                                <input type="email"  formControlName="emailFormControl"
-                                [(ngModel)]="email" placeholder="Ex. pat@example.com">
+                                <!-- <label>Email</label> -->
+                                <input type="email" class="auth-input" formControlName="emailFormControl"
+                                [(ngModel)]="email" placeholder="Email Address">
                                 <!-- <mat-error
                                     *ngIf="loginForm.get('emailFormControl')!.hasError('email') && loginForm.get('emailFormControl')!.hasError('required')">
                                     Please enter a valid email address
@@ -50,8 +45,8 @@
                                 </mat-error> -->
                             <!-- </mat-form-field> -->
                             <!-- <mat-form-field style="padding-top: 2rem;" class="example-full-width"> -->
-                                <label>Password</label>
-                                <input matInput [type]="hide ? 'password' : 'text'" formControlName="passwordControl" [(ngModel)]="password" required>
+                                <!-- <label>Password</label> -->
+                                <input class="auth-input password" placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="passwordControl" [(ngModel)]="password" required>
                                 <!-- <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' :
                                     'visibility'}}</mat-icon>
                             </mat-form-field> -->

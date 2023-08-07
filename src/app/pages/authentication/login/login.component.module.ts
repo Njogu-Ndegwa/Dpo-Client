@@ -4,6 +4,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { LoginComponent } from './login.component';
 import { LoginRoutingModule } from './login.component.routing';
 // import { SocialLoginModule } from '@abacritt/angularx-social-login';
+import { SocialLoginModule } from '@abacritt/angularx-social-login';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { LoginRoutingModule } from './login.component.routing';
     FormsModule,
     ReactiveFormsModule,
     LoginRoutingModule,
+    SocialLoginModule
     // SocialLoginModule 
   ]
 })

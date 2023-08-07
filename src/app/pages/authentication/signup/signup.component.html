@@ -20,15 +20,11 @@
                         <h3>Create Account</h3>
                     </div>
 
-                    <div class="social-buttons">
-                        <button>Sign Up with google</button>
 
+                    <div class="social-buttons" style="display: flex; justify-content: space-between;">
+                        <asl-google-signin-button type='standard' logo_alignment="center"  size='large'></asl-google-signin-button>
 
-                        <!-- <button (click)="loginWithGoogle()" mat-raised-button class="google-login-btn">
-                            Google
-                        </button> -->
-
-                        <button style="margin-left: 4.5rem;">Sign Up with Facebook</button>
+                        <button type="button" (click)="loginWithFacebook()" > <span class="words">Signup with Facebook </span><span style="color:#264f96; font-size: 26px; margin-left: 2rem;"><i class="fab fa-facebook-square"></i></span></button>
                     </div>
 
                     <div class="middle-section">
@@ -38,14 +34,12 @@
                     <div class="form">
                         <form [formGroup]="myForm" class="example-form">
                             <!-- <mat-form-field class="example-full-width"> -->
-                                <label>Full Name</label>
-                                <input type="email" matInput formControlName="fullnameControl"
-                                    placeholder="Ex. pat@example.com"  >
+                                <input type="email" class="auth-input" formControlName="fullnameControl"
+                                    placeholder="Full Name"  >
                             <!-- </mat-form-field>
                             <mat-form-field class="example-full-width" style="padding-top: 1rem;"> -->
-                                <label>Email Adress</label>
-                                <input type="email" matInput formControlName="emailFormControl"
-                                    placeholder="Ex. pat@example.com">
+                                <input type="email" class="auth-input" formControlName="emailFormControl"
+                                    placeholder="Email Address">
                                 <!-- <mat-error -->
                                     <!-- *ngIf="myForm.get('emailFormControl')!.hasError('email') && !myForm.get('emailFormControl')!.hasError('required')">
                                     Please enter a valid email address -->
@@ -55,8 +49,7 @@
                                 </mat-error> -->
                             <!-- </mat-form-field> -->
                             <!-- <mat-form-field style="padding-top: 1rem;" class="example-full-width">/ -->
-                                <label>Password</label>
-                                <input matInput [type]="hide ? 'password' : 'text'" formControlName="passwordControl" required>
+                                <input class="auth-input" placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="passwordControl" required>
                                 <!-- <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' :
                                     'visibility'}}</mat-icon>
                             </mat-form-field> -->

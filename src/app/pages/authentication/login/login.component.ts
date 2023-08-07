@@ -3,6 +3,11 @@ import {FormControl,  FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 // import {GoogleLoginProvider, SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 import { LoginService } from 'src/app/services/authentication/login/login.service';
+import {
+  SocialAuthService,
+  FacebookLoginProvider,
+  SocialUser,
+} from '@abacritt/angularx-social-login';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +25,8 @@ export class LoginComponent implements OnInit{
   constructor( 
     // private socialAuthService: SocialAuthService,
     private router: Router,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private socialAuthService: SocialAuthService
     ){
       this.loginForm = new FormGroup({
         emailFormControl: new FormControl('', [Validators.required, Validators.email]),
@@ -45,14 +51,22 @@ export class LoginComponent implements OnInit{
       });
       this.loginForm.reset()
       setTimeout(() => {
-        console.log('----------------47---------')
         this.router.navigate([''])
       }, 100)
 
     })
   }
 
+  loginWithFacebook(): void {
+    this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID);
+  }
+
   onSignUp() {
     this.router.navigate(['/signup'])
   }
+
+
+  // trySomething(){
+  //   window.publishOverlayAPI.connectDomain()
+  // }
 }

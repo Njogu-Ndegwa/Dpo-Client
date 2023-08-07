@@ -48,8 +48,8 @@ export class SignUpComponent implements OnInit{
 
   }
 
-  // loginWithGoogle() {
-  //   this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID)
-  //   .then(() => this.router.navigate(['']));
-  // }
+  loginWithFacebook(){
+
+  }
+
 }

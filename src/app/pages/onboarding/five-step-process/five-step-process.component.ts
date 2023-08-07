@@ -13,7 +13,7 @@ export class FiveStepProcessComponent implements OnInit {
   width: string = '20%';
   currentTab: number = 1;
   previousTab!: number;
-  containerWidth: string = '20%';
+  containerWidth: string = '25%';
   businessName:any
   activeSection: string = '';
   defaultTemplate: string = '1000440'
@@ -63,7 +63,7 @@ export class FiveStepProcessComponent implements OnInit {
 
   updateContainerWidth(offset: number) {
     const currentWidth = parseInt(this.containerWidth, 10);
-    const newWidth = currentWidth + offset * 20;
+    const newWidth = currentWidth + offset * 25;
     this.containerWidth = `${newWidth}%`;
   }
 

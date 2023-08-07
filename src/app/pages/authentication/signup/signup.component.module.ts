@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { SignUpComponent } from './signup.component';
 import {SignUpRoutingModule } from './signup.component.routing';
-// import { SocialLoginModule } from '@abacritt/angularx-social-login';
+import { SocialLoginModule } from '@abacritt/angularx-social-login';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,7 @@ import {SignUpRoutingModule } from './signup.component.routing';
     FormsModule,
     ReactiveFormsModule,
     SignUpRoutingModule,
-    // SocialLoginModule 
+    SocialLoginModule 
   ]
 })
 export class SignUpModule { }
