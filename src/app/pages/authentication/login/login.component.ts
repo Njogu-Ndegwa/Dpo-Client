@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit{
       });
       this.loginForm.reset()
       setTimeout(() => {
+        console.log('----------------47---------')
         this.router.navigate([''])
       }, 100)
 
