@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
-  baseUrl: 'smart.infomoby.com',
-  api: 'https://smartapi.infomoby.com/api/',
+  baseUrl: 'diy.infomoby.com',
+  api: 'https://diy.infomoby.com/api/',
 };
 
 
