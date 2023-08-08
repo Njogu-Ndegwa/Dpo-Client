@@ -116,8 +116,10 @@ export class FiveStepProcessComponent implements OnInit {
           const link = document.createElement('a');
           link.target = '_blank';
           link.href = sso_link;
-          link.setAttribute('visibility', 'hidden');
+          link.style.visibility = 'hidden'; // Set the CSS style to hide the link
+          document.body.appendChild(link);
           link.click();
+          
         }
         this.router.navigate(['/onboarding', sso_link])
       }
