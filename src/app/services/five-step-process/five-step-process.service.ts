@@ -25,4 +25,11 @@ export class FiveStepProcessService {
   getTemplatesService(){
     return this.httpClient.get(`${environment.api}get-templates`)
   }
+
+  saveSsoLink(ssoLink:any, userId:any) {
+    return this.httpClient.post(`${environment.api}save-sso`, {
+      sso_link: ssoLink,
+      user_id: userId
+    })
+  }
 }

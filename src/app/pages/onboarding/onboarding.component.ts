@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class OnboardingComponent implements OnInit {
   isEdit:boolean = false
   ssoLink:any
+  userId:any
   constructor(
     private router: Router,
     private testService: TestService,
@@ -17,6 +18,12 @@ export class OnboardingComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    let ssoLink = localStorage.getItem('sso_link')
+    console.log(ssoLink, 'SSO Link')
+    if(ssoLink != 'null') {
+      this.isEdit = true
+      this.ssoLink = ssoLink
+    }
     this.route.params.subscribe(params => {
       const ssoLink = params['sso_link'];
       // Now you have access to the SSO link value (sso_link).

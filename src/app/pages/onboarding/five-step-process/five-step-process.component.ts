@@ -23,6 +23,8 @@ export class FiveStepProcessComponent implements OnInit {
   personObject:any
   items: any
   selectedItem: any = null;
+  ssoLink:any = ''
+  userId:any = ''
   constructor(
     private fiveStepProcessService: FiveStepProcessService,
     private router: Router
@@ -38,6 +40,7 @@ export class FiveStepProcessComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.userId = localStorage.getItem('id')
     let email = localStorage.getItem('email')
     this.personObject = {
       email: email,
@@ -103,10 +106,13 @@ export class FiveStepProcessComponent implements OnInit {
     this.fiveStepProcessService.fiveStepProcessService(this.businessName, this.defaultTemplate, this.email, this.phone, this.personObject ).subscribe((res:any) => {
       if (res['sso_link']) {
         let sso_link = res['sso_link']
+        this.ssoLink = sso_link
         console.log(res,' The Result')
         console.log(sso_link, 'The SSO Link')
         // this.router.navigate(['/onboarding', sso_link])
         if(sso_link) {
+          localStorage.setItem('sso_link', sso_link)
+          this.saveSsoLink()
           const link = document.createElement('a');
           link.target = '_blank';
           link.href = sso_link;
@@ -116,6 +122,12 @@ export class FiveStepProcessComponent implements OnInit {
         this.router.navigate(['/onboarding', sso_link])
       }
       Loading.remove()
+    })
+  }
+
+  saveSsoLink() {
+    this.fiveStepProcessService.saveSsoLink(this.ssoLink, this.userId).subscribe((res) => {
+      console.log(res, 'Save SSO Link-----128----')
     })
   }
 }

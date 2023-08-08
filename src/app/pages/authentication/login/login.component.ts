@@ -61,6 +61,8 @@ export class LoginComponent implements OnInit {
         Object.entries(res).forEach(([key, value]) => {
           localStorage.setItem('token', value['token']);
           localStorage.setItem('email', value['email']);
+          localStorage.setItem('id', value['id'])
+          localStorage.setItem('sso_link', value['sso_link'])
         });
       },
       complete: () => {
