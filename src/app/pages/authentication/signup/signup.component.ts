@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl,  FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { SignupService } from 'src/app/services/authentication/signup/signup.service';
-// import {GoogleLoginProvider, SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
-
+import {GoogleLoginProvider, SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
+import { HttpClient } from '@angular/common/http';
+import { Loading } from 'notiflix';
 
 @Component({
   selector: 'app-signup',
@@ -14,9 +15,15 @@ export class SignUpComponent implements OnInit{
   myForm!: FormGroup;
   hide = true;
   loading:boolean = false
+  socialUser:any
+  email:any
+  fullname:any
+  password:any
   constructor( 
     private router: Router,
-    private signupService: SignupService
+    private signupService: SignupService,
+    private socialAuthService: SocialAuthService,
+    private http: HttpClient
     ){
       this.myForm = new FormGroup({
         fullnameControl: new FormControl('', [Validators.required]),
@@ -27,7 +34,10 @@ export class SignUpComponent implements OnInit{
 
 
   ngOnInit() {
-
+      this.socialAuthService.authState.subscribe((user: any) => {
+        this.socialUser = user;
+          this.authWithGoogle(user.provider);
+      });
   }
 
   toLogin() {
@@ -36,20 +46,41 @@ export class SignUpComponent implements OnInit{
 
   onSubmit() {
     this.loading = true
-    const email = this.myForm.get('emailFormControl')!.value;
-    const fullname = this.myForm.get('fullnameControl')!.value;
-    const password = this.myForm.get('passwordControl')!.value;
+    let email = this.myForm.get('emailFormControl')!.value;
+    let fullname = this.myForm.get('fullnameControl')!.value;
+    let password = this.myForm.get('passwordControl')!.value;
+this.signUpServiceFunction(email, password, fullname)
+  }
 
+  signUpServiceFunction(email:any, password:any, fullname:any) {
     this.signupService.signupService(email, password, fullname).subscribe((res) => {
       this.loading = false
       this.myForm.reset()
       this.router.navigate(['/login'])
     })
-
   }
 
   loginWithFacebook(){
 
   }
 
+  authWithGoogle(provider: string): void {
+    this.loading = true
+    this.http
+      .get(
+        `https://oauth2.googleapis.com/tokeninfo?id_token=${this.socialUser.idToken}`
+      )
+      .toPromise()
+      .then((res: any) => {
+
+        if (res.email_verified) {
+          let email = res.email;
+          let fullname = res.name;
+          let password = res.sub;
+            // this.loginMethod(res.email, res.sub);
+            this.signUpServiceFunction(email, password, fullname)
+
+        }
+      })
+  }
 }

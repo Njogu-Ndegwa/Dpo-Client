@@ -113,6 +113,7 @@ export class FiveStepProcessComponent implements OnInit {
           link.setAttribute('visibility', 'hidden');
           link.click();
         }
+        this.router.navigate(['/onboarding', sso_link])
       }
       Loading.remove()
     })

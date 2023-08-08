@@ -190,9 +190,9 @@
             <div class="progress-buttons">
                 <button (click)="switchTab(-1)" class="back-button"><i class="fa-solid fa-arrow-left icon"></i>
                     Back</button>
-                <button *ngIf="currentTab < 4" (click)="switchTab(1)" class="continue-button">Continue <i
+                <button *ngIf="currentTab < 3" (click)="switchTab(1)" class="continue-button">Continue <i
                         class="fa-solid fa-arrow-right icon"></i></button>
-                <button (click)="onSubmit()" class="continue-button" *ngIf="currentTab ===4">Done</button>
+                <button (click)="onSubmit()" class="continue-button" *ngIf="currentTab ===3">Done</button>
             </div>
         </div>
     </div>
