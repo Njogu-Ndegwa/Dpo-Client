@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { SignupService } from 'src/app/services/authentication/signup/signup.service';
 import {GoogleLoginProvider, SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 import { HttpClient } from '@angular/common/http';
-import { Loading } from 'notiflix';
+import { Notify } from 'notiflix';
 
 @Component({
   selector: 'app-signup',
@@ -54,9 +54,14 @@ this.signUpServiceFunction(email, password, fullname)
 
   signUpServiceFunction(email:any, password:any, fullname:any) {
     this.signupService.signupService(email, password, fullname).subscribe((res) => {
+      console.log(res, 'The Result---57---')
       this.loading = false
       this.myForm.reset()
+      Notify.success('User Signed Up Succesfully')
       this.router.navigate(['/login'])
+    },
+    () => {
+      this.loading = false
     })
   }
 

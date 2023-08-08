@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { 
   GoogleInitOptions, 
   GoogleLoginProvider, 
@@ -12,6 +12,7 @@ import {
 
 } from '@abacritt/angularx-social-login';
 import { environment } from 'src/environments/environment';
+import { ErrorIntercept } from './interceptors/interceptors';
 
 const googleLoginOptions: GoogleInitOptions = {
   oneTapEnabled: false,
@@ -61,6 +62,11 @@ const googleLoginOptions: GoogleInitOptions = {
           console.error(err);
         }
       } as SocialAuthServiceConfig,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorIntercept,
+      multi: true,
     },
   ],
   bootstrap: [AppComponent]

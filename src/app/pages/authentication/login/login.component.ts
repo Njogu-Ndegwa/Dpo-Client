@@ -9,7 +9,7 @@ import {
   FacebookLoginProvider,
   SocialUser,
 } from '@abacritt/angularx-social-login';
-import { Loading } from 'notiflix';
+import { Loading, Notify } from 'notiflix';
 
 @Component({
   selector: 'app-login',
@@ -55,20 +55,27 @@ export class LoginComponent implements OnInit {
     this.loginServiceFunction(email, password)
   }
 
-  loginServiceFunction(email:any, password:any) {
-    this.loginService.loginService(email, password).subscribe((res) => {
-      this.loading = false
-      Object.entries(res).forEach(([key, value]) => {
-        localStorage.setItem('token', value['token'])
-        localStorage.setItem('email', value['email'])
-      });
-      this.loginForm.reset()
-      setTimeout(() => {
-        this.router.navigate([''])
-      }, 100)
-
-    })
+  loginServiceFunction(email: any, password: any) {
+    this.loginService.loginService(email, password).subscribe({
+      next: (res) => {
+        Object.entries(res).forEach(([key, value]) => {
+          localStorage.setItem('token', value['token']);
+          localStorage.setItem('email', value['email']);
+        });
+      },
+      complete: () => {
+        Notify.success('User Logged In Successfully')
+        this.router.navigateByUrl('/');
+        this.loginForm.reset();
+      },
+      error: (error) => {
+        // Handle login error
+        this.loading = false;
+        console.error('Login error:', error);
+      }
+    });
   }
+  
 
   authWithGoogle(provider: string): void {
     this.loading = true 
