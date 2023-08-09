@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/authGuard';
+
 const routes: Routes = [
   {
     path: 'login',
@@ -44,6 +45,14 @@ const routes: Routes = [
         (m) => m.FiveStepProcessModule
       ),
       canActivate: [AuthGuard]
+  },
+
+  {
+    path: 'payment',
+    loadChildren: () =>
+      import('./pages/payment/payment.component.module').then(
+        (m) => m.PaymentModule
+      )
   },
 ];
 
