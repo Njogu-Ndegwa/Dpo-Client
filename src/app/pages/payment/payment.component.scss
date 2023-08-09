@@ -1,0 +1,83 @@
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    .content {
+        width: 80%;
+        height: 60%;
+        .heading {
+            color: #000;
+            font-family: Outfit;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            margin-bottom: 1rem;
+        }
+
+        .choose-section {
+            border: 1.5px solid black;
+            margin-bottom: 3rem;
+            display: flex;
+            justify-content: space-between;
+            height: 100px;
+            align-items: center;
+            border-radius: 5px;
+            cursor: pointer;
+            .radio-container {
+                display: flex;
+                align-items: center;
+            }
+            .radio-container input[type="radio"] {
+                margin-right: 10px; /* Add some spacing between radio button and content */
+                margin-left: 2rem;
+                width: 18px;
+                height: 18px;
+            }
+            h3 {
+                color: #000;
+                font-family: Outfit;
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+            
+            }
+            p{
+                color: #000;
+                font-family: Outfit;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+            }
+            .money {
+                color: #000;
+                font-family: Outfit;
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+                margin-right: 2rem;
+            }
+        }
+
+        .proceed-button {
+            width: 100%;
+            height: 50px;
+            border-radius: 10px;
+            border: none;
+            color: white;
+            background-color: #04A9F4;
+            text-align: center;
+            font-family: Outfit;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 136.5%; /* 27.3px */
+            letter-spacing: 0.8px;
+        }
+    }
+}

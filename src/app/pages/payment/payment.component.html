@@ -1,1 +1,29 @@
-<p>payment works!</p>
+<div class="body">
+    <div class="content">
+        <h1 class="heading">Your total cost</h1>
+
+        <div class="choose-section"  (click)="handleClick('65')" [style]="{ 'border': isSectionSelected('65') ? '1.5px solid #24A0ED' : '1.5px solid black' }">
+            <div class="radio-container">
+                <input type="radio" id="domain-radio" [checked]="isSectionSelected('65')">
+                <div>
+                    <h3>Purchase a domain</h3>
+                    <p>This cost covers editor usage fees + Domain name purchase</p>
+                </div>
+            </div>
+            <p class="money">$65 USD</p>
+        </div>
+
+        <div class="choose-section" (click)="handleClick('50')" [style]="{ 'border': isSectionSelected('50') ? '1.5px solid #24A0ED' : '1.5px solid black' }">
+            <div class="radio-container">
+                <input type="radio" id="domain-radio" [checked]="isSectionSelected('50')">
+                <div>
+                    <h3>Connect your own domain</h3>
+                    <p>This cost covers editor usage fees </p>
+                </div>
+            </div>
+            <p class="money">$50 USD</p>
+        </div>
+
+        <button class="proceed-button">PROCEED TO PAYMENT</button>
+    </div>
+</div>

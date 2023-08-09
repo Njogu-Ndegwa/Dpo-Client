@@ -20,6 +20,14 @@ const routes: Routes = [
   },
 
   {
+    path: 'payment',
+    loadChildren: () =>
+      import('./pages/payment/payment.component.module').then(
+        (m) => m.PaymentModule
+      )
+  },
+
+  {
     path: '',
     loadChildren: () =>
       import('./pages/onboarding/onboarding.component.module').then(
@@ -47,13 +55,6 @@ const routes: Routes = [
       canActivate: [AuthGuard]
   },
 
-  {
-    path: 'payment',
-    loadChildren: () =>
-      import('./pages/payment/payment.component.module').then(
-        (m) => m.PaymentModule
-      )
-  },
 ];
 
 @NgModule({
