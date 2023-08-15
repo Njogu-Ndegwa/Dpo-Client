@@ -4,11 +4,18 @@
             <div class="content">
                 <p>Create beautiful websites with no code</p>
                 <div *ngIf="isEdit === false" class="button-style">
-                    <button (click)="createSitesNoCode()">START HERE</button>
+                    <button (click)="createSitesNoCode()" [disabled]="isLoading"> 
+                        START HERE
+                        <i *ngIf="isLoading" class="fas fa-spinner fa-spin"></i>
+                    </button>
                 </div>
                 <div *ngIf="isEdit === true" class="button-style">
-                    <button (click)="editSite()">Edit Site</button>
+                    <button (click)="editSite()" [disabled]="isLoading">
+                        EDIT SITE
+                        <i *ngIf="isLoading" class="fas fa-spinner fa-spin"></i>
+                    </button>
                 </div>
+
             </div>
         </div>
         <hr>

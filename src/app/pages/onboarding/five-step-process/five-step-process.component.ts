@@ -13,7 +13,7 @@ export class FiveStepProcessComponent implements OnInit {
   width: string = '20%';
   currentTab: number = 1;
   previousTab!: number;
-  containerWidth: string = '25%';
+  containerWidth: string = '30%';
   businessName:any
   activeSection: string = '';
   defaultTemplate: string = '1000440'
@@ -66,7 +66,7 @@ export class FiveStepProcessComponent implements OnInit {
 
   updateContainerWidth(offset: number) {
     const currentWidth = parseInt(this.containerWidth, 10);
-    const newWidth = currentWidth + offset * 25;
+    const newWidth = currentWidth + offset * 30;
     this.containerWidth = `${newWidth}%`;
   }
 
@@ -101,18 +101,21 @@ export class FiveStepProcessComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.defaultTemplate, 'Default Me------101-----')
+    console.log(typeof(this.email), typeof(this.phone), 'Phone Details')
     Loading.pulse()
-    this.fiveStepProcessService.fiveStepProcessService(this.businessName, this.defaultTemplate, this.email, this.phone, this.personObject ).subscribe((res:any) => {
+    this.fiveStepProcessService.fiveStepProcessService(this.businessName, this.defaultTemplate, this.email, this.phone, this.personObject, this.userId ).subscribe((res:any) => {
+      console.log(res, 'The Resul---107----')
       if (res['sso_link']) {
         let sso_link = res['sso_link']
         this.ssoLink = sso_link
-        console.log(res,' The Result')
-        console.log(sso_link, 'The SSO Link')
+        let account_name = res['account_name']
+        let site_name = res['site_name']
         // this.router.navigate(['/onboarding', sso_link])
         if(sso_link) {
-          localStorage.setItem('sso_link', sso_link)
-          this.saveSsoLink()
+          localStorage.setItem('account_name', account_name)
+          localStorage.setItem('site_name', site_name)
+          localStorage.setItem('template_id', '1000440')
+          // this.saveSsoLink()
           const link = document.createElement('a');
           link.target = '_blank';
           link.href = sso_link;
@@ -121,7 +124,7 @@ export class FiveStepProcessComponent implements OnInit {
           link.click();
           
         }
-        this.router.navigate(['/onboarding', sso_link])
+        this.router.navigate(['/'])
       }
       Loading.remove()
     })

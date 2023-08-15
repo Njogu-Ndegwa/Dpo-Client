@@ -28,6 +28,14 @@ const routes: Routes = [
   },
 
   {
+    path: 'checkout',
+    loadChildren: () =>
+      import('./pages/payment/checkout/checkout.component.module').then(
+        (m) => m.CheckoutModule
+      )
+  },
+
+  {
     path: '',
     loadChildren: () =>
       import('./pages/onboarding/onboarding.component.module').then(

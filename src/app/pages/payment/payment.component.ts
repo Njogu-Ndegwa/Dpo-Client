@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
+import { PaymentsService } from 'src/app/services/payments/payments.service';
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
@@ -8,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class PaymentComponent implements OnInit {
   selected: string | null = null;
   amountSelected:any
-  constructor() { }
+  constructor(
+    private router: Router,
+    private paymentService: PaymentsService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -26,6 +30,17 @@ export class PaymentComponent implements OnInit {
 
   isSectionSelected(sectionId: string): boolean {
     return this.selected === sectionId;
+  }
+
+  proceedToPayment() {
+    this.paymentService.createToken(this.amountSelected).subscribe((res:any) => {
+      console.log(res, 'The Result----37----')
+      const queryParams = {
+        trans_token: res['trans_token']
+      };
+      this.router.navigate(['/checkout'], {queryParams})
+    })
+    // this.router.navigate(['/checkout'])
   }
 
 }

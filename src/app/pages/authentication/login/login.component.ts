@@ -62,7 +62,9 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('token', value['token']);
           localStorage.setItem('email', value['email']);
           localStorage.setItem('id', value['id'])
-          localStorage.setItem('sso_link', value['sso_link'])
+          localStorage.setItem('site_name', value['site_name'])
+          localStorage.setItem('account_name', value['account_name'])
+          localStorage.setItem('template_id', value['template_id'])
         });
       },
       complete: () => {

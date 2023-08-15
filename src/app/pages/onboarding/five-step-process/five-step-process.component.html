@@ -16,7 +16,7 @@
         </div>
     </div>
 
-    <div class="section-wrapper" *ngIf="currentTab === 2">
+    <!-- <div class="section-wrapper" *ngIf="currentTab === 2">
         <div class="content-container">
             <div class="content">
                 <div class="content-body-container">
@@ -31,94 +31,6 @@
                             <div (click)="toggleIcon(item.template_id)" style="position: relative;">
                                 <i class="fa-solid fa-circle-check" [hidden]="!isIconVisible(item.template_id)" style="float: right; position: absolute; left: 5; font-size:22px; margin-left: 14rem; margin-top: 1rem;"></i>
                                 <img [src]="item.desktop_thumbnail_url" alt="Item Thumbnail" class="item-thumbnail">
-                                <!-- <i class="fa-solid fa-circle-check" [hidden]="!isIconVisible(item.template_id)"></i> -->
-                            </div>
-                        </div>
-                    </div>
-                    <!-- <div class="content-body">
-                        <div class="first-line">
-                            <span class="recommended">Recommended</span>
-                            <div class="section-container">
-                                <div class="section" (click)="toggleSection('about')"
-                                    [ngClass]="{ 'active': activeSection === 'about' }">
-                                    <p>About</p>
-                                    <span>
-                                        <i class="fa-solid fa-circle-check" *ngIf="activeSection === 'about'"></i>
-                                    </span>
-                                </div>
-                                <div class="section" (click)="toggleSection('services')"
-                                    [ngClass]="{ 'active': activeSection === 'services' }">
-                                    <p>Services</p>
-                                    <span>
-                                        <i class="fa-solid fa-circle-check" *ngIf="activeSection === 'services'"></i>
-                                    </span>
-                                </div>
-                                <div class="section" (click)="toggleSection('contact')"
-                                    [ngClass]="{ 'active': activeSection === 'contact' }">
-                                    <p>Contact</p>
-                                    <span>
-                                        <i class="fa-solid fa-circle-check" *ngIf="activeSection === 'contact'"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="second-line">
-                            <span class="recommended">Others...</span>
-                            <div class="section-container">
-                                <div class="section">
-                                    <p>News</p>
-
-                                </div>
-                                <div class="section">
-                                    <p>Blog</p>
-                                </div>
-                                <div class="section">
-                                    <p>Gallery</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-
-                </div>
-            </div>
-        </div>
-    </div>
-<!-- 
-    <div class="theme-wrapper" *ngIf="currentTab === 3">
-        <div class="content-container">
-            <div class="content">
-                <div class="content-body-container">
-                    <div class="content-body">
-                        <h1>Choose a theme that suits your business</h1>
-                        <p>This will help us in identifying the most suitable style
-                            that fits your business and communicates to your audience</p>
-                    </div>
-                </div>
-                <div class="recommendations">
-                    <div class="content-body">
-                        <div class="first-line">
-                            <span class="recommended">Recommended</span>
-                            <div class="section-container">
-                                <div class="section" (click)="toggleTheme('modern')">
-                                    <p>Modern</p>
-                                    <span>
-                                        <i class="fa-solid fa-circle-check" *ngIf="activeSection === 'modern'"></i>
-                                    </span>
-                                </div>
-                                <div class="section" (click)="toggleTheme('playful')">
-                                    <p>Playful</p>
-                                    <span>
-                                        <i class="fa-solid fa-circle-check" *ngIf="activeSection === 'playful'"></i>
-                                    </span>
-                                </div>
-                                <div class="section" (click)="toggleTheme('proffesional')">
-                                    <p>Proffesional</p>
-                                    <span>
-                                        <i class="fa-solid fa-circle-check"
-                                            *ngIf="activeSection === 'proffesional'"></i>
-                                    </span>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -127,7 +39,7 @@
         </div>
     </div> -->
 
-    <div class="review-wrapper" *ngIf="currentTab === 3">
+    <div class="review-wrapper" *ngIf="currentTab === 2">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-6 left-side">
@@ -158,17 +70,17 @@
                         <div class="input-group">
                             <p>Business Name</p>
                             <input type="text" [value]="businessName" class="custom-input"
-                                placeholder="Enter your name" />
+                                placeholder="Business Name" />
                         </div>
                         <div class="input-group">
                             <p>Email</p>
                             <input type="text" [(ngModel)]="email" class="custom-input"
-                                placeholder="Enter your Email" />
+                                placeholder="Business Email" />
                         </div>
                         <div class="input-group">
                             <p>Phone</p>
                             <input type="text" [(ngModel)]="phone" class="custom-input"
-                                placeholder="Enter your Phone" />
+                                placeholder="Business PhoneNumber" />
                         </div>
                         <!-- <div class="input-group">
                             <p>Address</p>
@@ -190,9 +102,9 @@
             <div class="progress-buttons">
                 <button (click)="switchTab(-1)" class="back-button"><i class="fa-solid fa-arrow-left icon"></i>
                     Back</button>
-                <button *ngIf="currentTab < 3" (click)="switchTab(1)" class="continue-button">Continue <i
+                <button *ngIf="currentTab < 2" (click)="switchTab(1)" class="continue-button">Continue <i
                         class="fa-solid fa-arrow-right icon"></i></button>
-                <button (click)="onSubmit()" class="continue-button" *ngIf="currentTab ===3">Done</button>
+                <button (click)="onSubmit()" class="continue-button" *ngIf="currentTab ===2">Done</button>
             </div>
         </div>
     </div>
