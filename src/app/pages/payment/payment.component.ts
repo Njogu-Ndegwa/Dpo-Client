@@ -43,11 +43,19 @@ export class PaymentComponent implements OnInit {
         trans_token: res['trans_token']
       };
       // this.router.navigate(['/checkout'], {queryParams})
-      const link = document.createElement('a');
-      link.target = '_blank';
-      link.href = `https://secure.3gdirectpay.com/payv3.php?ID=${transToken}`;
-      link.setAttribute('visibility', 'hidden');
-      link.click();
+      const iframe = document.createElement("iframe");
+      iframe.src = `https://secure.3gdirectpay.com/payv3.php?ID=${transToken}`;
+      iframe.width = "800";
+      iframe.height = "600";
+      iframe.style.visibility = "hidden"; // Set the visibility property
+      
+      // Append the iframe to the document body
+      document.body.appendChild(iframe);
+      
+      // Display the iframe (you might want to adjust visibility or other styles)
+      iframe.style.visibility = "visible";
+
+      
     })
     // this.router.navigate(['/checkout'])
   }
