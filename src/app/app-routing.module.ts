@@ -45,7 +45,7 @@ const routes: Routes = [
   },
 
   {
-    path: '',
+    path: 'onboarding',
     loadChildren: () =>
       import('./pages/onboarding/onboarding.component.module').then(
         (m) => m.OnboardingModule
@@ -53,14 +53,14 @@ const routes: Routes = [
       canActivate: [AuthGuard]
   },
 
-  {
-    path: 'onboarding/:sso_link',
-    loadChildren: () =>
-      import('./pages/onboarding/onboarding.component.module').then(
-        (m) => m.OnboardingModule
-      ),
-      canActivate: [AuthGuard]
-  },
+  // {
+  //   path: 'onboarding/:sso_link',
+  //   loadChildren: () =>
+  //     import('./pages/onboarding/onboarding.component.module').then(
+  //       (m) => m.OnboardingModule
+  //     ),
+  //     canActivate: [AuthGuard]
+  // },
 
 
   {
