@@ -10,6 +10,7 @@ export class PaymentComponent implements OnInit {
   selected: string | null = null;
   amountSelected:any
   isLoading:boolean = false
+  isiframeVisible: boolean = false
   constructor(
     private router: Router,
     private paymentService: PaymentsService
@@ -42,13 +43,13 @@ export class PaymentComponent implements OnInit {
       const queryParams = {
         trans_token: res['trans_token']
       };
+      this.isiframeVisible = true
       // this.router.navigate(['/checkout'], {queryParams})
       const iframe = document.createElement("iframe");
       iframe.src = `https://secure.3gdirectpay.com/payv3.php?ID=${transToken}`;
       iframe.width = "800";
       iframe.height = "600";
       iframe.style.visibility = "hidden"; // Set the visibility property
-      
       // Append the iframe to the document body
       document.body.appendChild(iframe);
       
