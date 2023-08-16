@@ -24,6 +24,9 @@
             <p class="money">$50 USD</p>
         </div>
 
-        <button (click)="proceedToPayment()" class="proceed-button">PROCEED TO PAYMENT</button>
+        <button (click)="proceedToPayment()" class="proceed-button">
+            PROCEED TO PAYMENT
+            <i *ngIf="isLoading" class="fas fa-spinner fa-spin"></i>
+        </button>
     </div>
 </div>

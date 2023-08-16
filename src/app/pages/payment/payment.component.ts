@@ -9,6 +9,7 @@ import { PaymentsService } from 'src/app/services/payments/payments.service';
 export class PaymentComponent implements OnInit {
   selected: string | null = null;
   amountSelected:any
+  isLoading:boolean = false
   constructor(
     private router: Router,
     private paymentService: PaymentsService
@@ -33,9 +34,10 @@ export class PaymentComponent implements OnInit {
   }
 
   proceedToPayment() {
+    this.isLoading = true
     this.paymentService.createToken(this.amountSelected).subscribe((res:any) => {
+      this.isLoading = false
       console.log(res, 'The Result----37----')
-
       let transToken = res['trans_token']
       const queryParams = {
         trans_token: res['trans_token']

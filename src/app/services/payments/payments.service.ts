@@ -23,4 +23,12 @@ export class PaymentsService {
       phonenumber: phoneNumber
     })
   }
+
+
+
+  verifyPaymentService(transactionToken:any) {
+    return this.httpClient.post(`${environment.api}verify-payment`, {
+      transaction_token: transactionToken
+    })
+  }
 }
