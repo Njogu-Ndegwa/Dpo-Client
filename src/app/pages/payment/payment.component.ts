@@ -35,10 +35,17 @@ export class PaymentComponent implements OnInit {
   proceedToPayment() {
     this.paymentService.createToken(this.amountSelected).subscribe((res:any) => {
       console.log(res, 'The Result----37----')
+
+      let transToken = res['trans_token']
       const queryParams = {
         trans_token: res['trans_token']
       };
-      this.router.navigate(['/checkout'], {queryParams})
+      // this.router.navigate(['/checkout'], {queryParams})
+      const link = document.createElement('a');
+      link.target = '_blank';
+      link.href = `https://secure.3gdirectpay.com/payv3.php?ID=${transToken}`;
+      link.setAttribute('visibility', 'hidden');
+      link.click();
     })
     // this.router.navigate(['/checkout'])
   }

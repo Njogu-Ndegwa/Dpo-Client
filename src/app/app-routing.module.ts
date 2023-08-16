@@ -27,6 +27,15 @@ const routes: Routes = [
       )
   },
 
+
+  {
+    path: 'verify-payment',
+    loadChildren: () =>
+      import('./pages/payment/verify-payment/verify-payment.component.module').then(
+        (m) => m.VerifyPaymentModule
+      )
+  },
+
   {
     path: 'checkout',
     loadChildren: () =>
