@@ -45,7 +45,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'onboarding',
+    path: '',
     loadChildren: () =>
       import('./pages/onboarding/onboarding.component.module').then(
         (m) => m.OnboardingModule

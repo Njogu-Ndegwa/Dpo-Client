@@ -124,7 +124,7 @@ export class FiveStepProcessComponent implements OnInit {
           link.click();
           
         }
-        this.router.navigate(['/onboarding'])
+        this.router.navigate(['/'])
       }
       Loading.remove()
     })
