@@ -9,7 +9,10 @@ export class PaymentsService {
 
   constructor(
     private httpClient: HttpClient
-  ) { }
+  ) {
+
+    // window.publishOverlayAPI.connectDomain()
+   }
 
   createToken(amount:any) {
     return this.httpClient.post(`${environment.api}payment`, {
