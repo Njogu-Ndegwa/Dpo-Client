@@ -59,7 +59,7 @@ const googleLoginOptions: GoogleInitOptions = {
         providers: [
           {
             id: FacebookLoginProvider.PROVIDER_ID,
-            provider: new FacebookLoginProvider('869422684538521'),
+            provider: new FacebookLoginProvider('868521'),
           },
         ],
       } as SocialAuthServiceConfig,
