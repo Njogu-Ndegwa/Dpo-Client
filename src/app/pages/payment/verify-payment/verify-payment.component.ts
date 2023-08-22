@@ -52,6 +52,9 @@ export class VerifyPaymentComponent implements OnInit {
 window.publishOverlayAPI.connectDomain()
 
 // @ts-ignore
+console.log(window.publishOverlayAPI)
+
+// @ts-ignore
 console.log(window.publishOverlayAPI.connectDomain())
   }
 
