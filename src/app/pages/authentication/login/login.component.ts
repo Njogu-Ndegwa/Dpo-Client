@@ -103,7 +103,7 @@ export class LoginComponent implements OnInit {
   }
 
   loginWithFacebook(): void {
-    console.log(FacebookLoginProvider, 'Facebook Login Provider')
+    console.log(FacebookLoginProvider.PROVIDER_ID, 'Facebook Login Provider')
     this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID);
   }
 
