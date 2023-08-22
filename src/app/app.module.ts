@@ -4,9 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { 
-  GoogleInitOptions, 
-  GoogleLoginProvider, 
+import {
+  GoogleInitOptions,
+  GoogleLoginProvider,
   SocialAuthServiceConfig,
   FacebookLoginProvider,
 
@@ -30,40 +30,40 @@ const googleLoginOptions: GoogleInitOptions = {
     HttpClientModule
   ],
   providers: [
+    // {
+    //   provide: 'SocialAuthServiceConfig',
+    //   useValue: {
+    //     autoLogin: false,
+    //     providers: [
+    //       {
+    //         id: GoogleLoginProvider.PROVIDER_ID,
+    //         provider: new GoogleLoginProvider(
+
+    //           environment.googgle_sign_in_key,
+
+    //           googleLoginOptions
+    //         ),
+    //       },
+
+
+    //     ],
+    //     onError: (err: any) => {
+    //       console.error(err);
+    //     }
+    //   } as SocialAuthServiceConfig,
+    // },
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {
         autoLogin: false,
         providers: [
           {
-            id: GoogleLoginProvider.PROVIDER_ID,
-            provider: new GoogleLoginProvider(
-
-              environment.googgle_sign_in_key,
-
-              googleLoginOptions
-            ),
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider('869422684538521'),
           },
-
-
         ],
-        onError: (err: any) => {
-          console.error(err);
-        }
       } as SocialAuthServiceConfig,
     },
-    {
-            provide: 'SocialAuthServiceConfig',
-            useValue: {
-              autoLogin: false,
-              providers: [
-                {
-                  id: FacebookLoginProvider.PROVIDER_ID,
-                  provider: new FacebookLoginProvider('869422684538521'),
-                },
-              ],
-            } as SocialAuthServiceConfig,
-      },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorIntercept,
