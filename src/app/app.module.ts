@@ -45,24 +45,25 @@ const googleLoginOptions: GoogleInitOptions = {
             ),
           },
 
-          // {
-          //   provide: 'SocialAuthServiceConfig',
-          //   useValue: {
-          //     autoLogin: false,
-          //     providers: [
-          //       {
-          //         id: FacebookLoginProvider.PROVIDER_ID,
-          //         provider: new FacebookLoginProvider('Facebook-App-ID-Goes-Here'),
-          //       },
-          //     ],
-          //   } as SocialAuthServiceConfig,
-          // },
+
         ],
         onError: (err: any) => {
           console.error(err);
         }
       } as SocialAuthServiceConfig,
     },
+    {
+            provide: 'SocialAuthServiceConfig',
+            useValue: {
+              autoLogin: false,
+              providers: [
+                {
+                  id: FacebookLoginProvider.PROVIDER_ID,
+                  provider: new FacebookLoginProvider('869422684538521'),
+                },
+              ],
+            } as SocialAuthServiceConfig,
+      },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorIntercept,
