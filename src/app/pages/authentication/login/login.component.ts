@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.socialAuthService.authState.subscribe((user: any) => {
+      console.log(user, 'User')
       this.socialUser = user;
         this.authWithGoogle(user.provider);
     });
@@ -102,6 +103,7 @@ export class LoginComponent implements OnInit {
   }
 
   loginWithFacebook(): void {
+    console.log(FacebookLoginProvider, 'Facebook Login Provider')
     this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID);
   }
 
