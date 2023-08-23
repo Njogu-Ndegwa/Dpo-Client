@@ -58,10 +58,13 @@ export class VerifyPaymentComponent implements OnInit {
     // console.log(window.publishOverlayAPI.connectDomain())
 
     function getParameterByName(name:any, url:any) {
+      console.log(name, 'Name------50')
       if (!url) {
           url = window.location.href;
       }
       name = name.replace(/[\[\]]/g, '\\$&');
+
+      console.log(name, 'The Name---67---')
       var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
           results = regex.exec(url);
       if (!results) return null;
@@ -71,7 +74,9 @@ export class VerifyPaymentComponent implements OnInit {
     }
 
     // @ts-ignore
-    getParameterByName('editorOrigin')
+   let result =  getParameterByName('editorOrigin')
+
+   console.log(result, 'The Result---79---')
     // // @ts-ignore
     // window.parent.postMessage({ key: 'publish-overlay-connect-domain' }, getParameterByName('editorOrigin'));
 
