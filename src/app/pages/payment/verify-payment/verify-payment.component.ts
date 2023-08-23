@@ -57,19 +57,21 @@ export class VerifyPaymentComponent implements OnInit {
     // // @ts-ignore
     // console.log(window.publishOverlayAPI.connectDomain())
 
-    // function getParameterByName(name:any, url:any) {
-    //   if (!url) {
-    //       url = window.location.href;
-    //   }
-    //   name = name.replace(/[\[\]]/g, '\\$&');
-    //   var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-    //       results = regex.exec(url);
-    //   if (!results) return null;
-    //   if (!results[2]) return '';
-    //   console.log(results, 'The Results')
-    //   return decodeURIComponent(results[2].replace(/\+/g, ' '));
-    // }
+    function getParameterByName(name:any, url:any) {
+      if (!url) {
+          url = window.location.href;
+      }
+      name = name.replace(/[\[\]]/g, '\\$&');
+      var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+          results = regex.exec(url);
+      if (!results) return null;
+      if (!results[2]) return '';
+      console.log(results, 'The Results')
+      return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
 
+    // @ts-ignore
+    getParameterByName('editorOrigin')
     // // @ts-ignore
     // window.parent.postMessage({ key: 'publish-overlay-connect-domain' }, getParameterByName('editorOrigin'));
 
