@@ -47,49 +47,14 @@ export class VerifyPaymentComponent implements OnInit {
   }
 
 
-  testFunction() {
+  connectDomainFunction() {
     // @ts-ignore
-    // window.publishOverlayAPI.connectDomain()
-
-    // // @ts-ignore
-    // console.log(window.publishOverlayAPI)
-
-    // // @ts-ignore
-    // console.log(window.publishOverlayAPI.connectDomain())
-
-    function getParameterByName(name:any, url:any) {
-      console.log(name, 'Name------50')
-      if (!url) {
-          url = window.location.href;
-      }
-      url = 'https://tmp-sandboxd12dc028.editor-sandbox.multiscreensite.com/home/site/83176fa37b574043b5ee6e61c9546fa0'
-      name = name.replace(/[\[\]]/g, '\\$&');
-
-      console.log(name, 'The Name---67---')
-      console.log(url, 'Url-----')
-      var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-          results = regex.exec(url);
-      if (!results) return null;
-      if (!results[2]) return '';
-      console.log(results, 'The Results')
-      return decodeURIComponent(results[2].replace(/\+/g, ' '));
-    }
-
-    // @ts-ignore
-   let result =  getParameterByName('editorOrigin')
-
-   console.log(result, 'The Result---79---')
-    // // @ts-ignore
-    // window.parent.postMessage({ key: 'publish-overlay-connect-domain' }, getParameterByName('editorOrigin'));
-
-
-      // @ts-ignore
-      window.publishOverlayAPI.closeOverlay()
+    window.publishOverlayAPI.connectDomain()
 
   }
 
 
-  printLog() {
+  logPublishOverlayAPIcontent() {
     // @ts-ignore
     console.log(window.publishOverlayAPI)
   }
