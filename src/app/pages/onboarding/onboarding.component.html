@@ -2,7 +2,9 @@
     <div style="margin-right: 2rem;" class="call-to-action">
         <div class="content-container">
             <div class="content">
-                <p>Create beautiful websites with no code</p>
+                <p *ngIf="isEdit === false">Create beautiful websites with no code</p>
+
+                <p *ngIf="isEdit === true">Welcome back to your site</p>
                 <div *ngIf="isEdit === false" class="button-style">
                     <button (click)="createSitesNoCode()" [disabled]="isLoading"> 
                         START HERE
