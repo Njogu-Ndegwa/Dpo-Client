@@ -49,13 +49,29 @@ export class VerifyPaymentComponent implements OnInit {
 
   testFunction() {
   // @ts-ignore
-window.publishOverlayAPI.connectDomain()
+// window.publishOverlayAPI.connectDomain()
 
 // // @ts-ignore
 // console.log(window.publishOverlayAPI)
 
 // // @ts-ignore
 // console.log(window.publishOverlayAPI.connectDomain())
+
+function getParameterByName(name:any, url:any) {
+  if (!url) {
+      url = window.location.href;
+  }
+  name = name.replace(/[\[\]]/g, '\\$&');
+  var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+      results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return '';
+  return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+// @ts-ignore
+window.parent.postMessage({ key: 'publish-overlay-connect-domain' }, getParameterByName('editorOrigin'));
+
   }
 
 
