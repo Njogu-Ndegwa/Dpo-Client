@@ -1,0 +1,124 @@
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 105vh;
+
+    .card {
+        width: 60vw;
+        height: 85vh;
+        border-radius: 8px;
+        background: #FFF;
+        box-shadow: 0px 8px 4px 0px #D8D3D3;
+
+
+        .heading {
+            text-align: center;
+            font-family: Outfit;
+            line-height: normal;
+            font-style: normal;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+
+            p {
+                color: #757575;
+                font-size: 16px;
+                font-weight: 400;
+                margin-top: 2rem;
+            }
+
+            h1 {
+                color: #333;
+                font-size: 40px;
+                font-weight: 500;
+                margin-top: 2rem;
+            }
+        }
+
+
+        .content {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+
+            .form {
+                width: 100%;
+                // display: flex;
+                // justify-content: center;
+
+                .input:focus{
+                    border: none !important;
+                    outline: hidden;
+                }
+                .input {
+                    display: flex;
+                    justify-content: center;
+                    margin-bottom: 1rem;
+                    width: 100%;
+                    font-family: Outfit;
+
+                    input:focus{
+                        border: none !important;
+                        outline: hidden;
+                    }
+
+
+                    input {
+                        width: 70%;
+                        border: none;
+                        background: #EBEEF3;
+                        border-radius: 3px;
+                        outline: none;
+                        text-indent: 1rem;
+                    }
+
+
+                    input::placeholder {
+                        font-size: 11px;
+                        font-style: normal;
+                        font-weight: 300;
+                        line-height: normal;
+                        // padding-left: 1rem;
+                    }
+
+                    textarea {
+                        width: 70%;
+                        border: none;
+                        background: #EBEEF3;
+                        border-radius: 3px;
+                        text-indent: 1rem;
+                    }
+
+                    textarea::placeholder {
+                        font-size: 11px;
+                        font-style: normal;
+                        font-weight: 300;
+                        line-height: normal;
+                        // padding-left: 1rem;
+                        padding-top: 0.5rem;
+                    }
+                    button {
+                        color: white;
+                        display: flex;
+                        width: 70%;
+                        height: 30px;
+                        padding: 0px 24px;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 10px;
+                        flex-shrink: 0;
+                        border: none;
+                        border-radius: 4px;
+                        background: #04A9F4;
+                        margin-bottom: 4rem;
+                    }
+                }
+
+
+            }
+        }
+
+
+    }
+}

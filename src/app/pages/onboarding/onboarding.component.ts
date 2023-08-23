@@ -72,5 +72,9 @@ export class OnboardingComponent implements OnInit {
       link.click();
     })
   }
+
+  hireProfessional() {
+    this.router.navigate(['/hire-professional'])
+  }
   
 }

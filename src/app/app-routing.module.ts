@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/authGuard';
 
 const routes: Routes = [
+  // Authentication
   {
     path: 'login',
     loadChildren: () =>
@@ -19,6 +20,7 @@ const routes: Routes = [
       ),
   },
 
+  // Payment Systems
   {
     path: 'payment',
     loadChildren: () =>
@@ -53,21 +55,24 @@ const routes: Routes = [
       canActivate: [AuthGuard]
   },
 
-  // {
-  //   path: 'onboarding/:sso_link',
-  //   loadChildren: () =>
-  //     import('./pages/onboarding/onboarding.component.module').then(
-  //       (m) => m.OnboardingModule
-  //     ),
-  //     canActivate: [AuthGuard]
-  // },
-
-
+// Simple Site Editor
   {
     path: 'five-step-process',
     loadChildren: () =>
       import('./pages/onboarding/five-step-process/five-step-process.component.module').then(
         (m) => m.FiveStepProcessModule
+      ),
+      canActivate: [AuthGuard]
+  },
+
+
+  // Hire A Proffesinal
+
+  {
+    path: 'hire-professional',
+    loadChildren: () =>
+      import('./pages/hire-a-proffesional/hire-a-proffesional.module').then(
+        (m) => m.HireAProffesionalModule
       ),
       canActivate: [AuthGuard]
   },

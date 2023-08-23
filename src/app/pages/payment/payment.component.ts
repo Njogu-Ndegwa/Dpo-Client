@@ -61,4 +61,11 @@ export class PaymentComponent implements OnInit {
     // this.router.navigate(['/checkout'])
   }
 
+
+  connectDomainFunction() {
+    // @ts-ignore
+    window.publishOverlayAPI.connectDomain()
+
+  }
+
 }
