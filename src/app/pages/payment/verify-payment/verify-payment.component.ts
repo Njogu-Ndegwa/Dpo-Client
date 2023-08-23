@@ -62,6 +62,7 @@ export class VerifyPaymentComponent implements OnInit {
       if (!url) {
           url = window.location.href;
       }
+      url = 'https://tmp-sandboxd12dc028.editor-sandbox.multiscreensite.com/home/site/83176fa37b574043b5ee6e61c9546fa0'
       name = name.replace(/[\[\]]/g, '\\$&');
 
       console.log(name, 'The Name---67---')
