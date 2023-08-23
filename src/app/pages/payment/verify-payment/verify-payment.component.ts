@@ -65,6 +65,7 @@ export class VerifyPaymentComponent implements OnInit {
       name = name.replace(/[\[\]]/g, '\\$&');
 
       console.log(name, 'The Name---67---')
+      console.log(url, 'Url-----')
       var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
           results = regex.exec(url);
       if (!results) return null;
