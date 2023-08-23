@@ -30,40 +30,40 @@ const googleLoginOptions: GoogleInitOptions = {
     HttpClientModule
   ],
   providers: [
-    // {
-    //   provide: 'SocialAuthServiceConfig',
-    //   useValue: {
-    //     autoLogin: false,
-    //     providers: [
-    //       {
-    //         id: GoogleLoginProvider.PROVIDER_ID,
-    //         provider: new GoogleLoginProvider(
-
-    //           environment.googgle_sign_in_key,
-
-    //           googleLoginOptions
-    //         ),
-    //       },
-
-
-    //     ],
-    //     onError: (err: any) => {
-    //       console.error(err);
-    //     }
-    //   } as SocialAuthServiceConfig,
-    // },
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {
         autoLogin: false,
         providers: [
           {
-            id: FacebookLoginProvider.PROVIDER_ID,
-            provider: new FacebookLoginProvider('977810236626700'),
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+
+              environment.googgle_sign_in_key,
+
+              googleLoginOptions
+            ),
           },
+
+
         ],
+        onError: (err: any) => {
+          console.error(err);
+        }
       } as SocialAuthServiceConfig,
     },
+    // {
+    //   provide: 'SocialAuthServiceConfig',
+    //   useValue: {
+    //     autoLogin: false,
+    //     providers: [
+    //       {
+    //         id: FacebookLoginProvider.PROVIDER_ID,
+    //         provider: new FacebookLoginProvider('977810236626700'),
+    //       },
+    //     ],
+    //   } as SocialAuthServiceConfig,
+    // },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorIntercept,
