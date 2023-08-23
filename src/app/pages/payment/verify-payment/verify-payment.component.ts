@@ -58,4 +58,9 @@ window.publishOverlayAPI.connectDomain()
 // console.log(window.publishOverlayAPI.connectDomain())
   }
 
+
+  printLog() {
+    // @ts-ignore
+    console.log(window.publishOverlayAPI)
+  }
 }
