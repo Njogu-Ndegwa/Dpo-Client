@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PaymentsService } from 'src/app/services/payments/payments.service';
 import { Notify } from 'notiflix';
+import { IframeControlService } from 'src/app/services/iframe/iframe-control.service';
 
 @Component({
   selector: 'app-verify-payment',
@@ -14,7 +15,8 @@ export class VerifyPaymentComponent implements OnInit {
   transactionToken: any
   constructor(
     private activatedRoute: ActivatedRoute,
-    private paymentService: PaymentsService
+    private paymentService: PaymentsService,
+    private iframeControlService: IframeControlService
 
   ) {
     this.activatedRoute.queryParams.subscribe((param) => {
@@ -51,6 +53,10 @@ export class VerifyPaymentComponent implements OnInit {
     // @ts-ignore
     window.publishOverlayAPI.connectDomain()
 
+  }
+
+  closeIframeFromOtherComponent() {
+    this.iframeControlService.closeIframe();
   }
 
 

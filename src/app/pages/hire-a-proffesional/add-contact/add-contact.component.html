@@ -1,1 +1,132 @@
-<p>add-contact works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 section-container">
+            <div class="inner-container">
+                <div *ngIf="currentTab === 1">
+                    <h1>Add your contact info</h1>
+                    <form>
+                        <div class="top-row">
+                            <div class="input-container">
+                                <label>Full Name <span class="asterik">*</span></label>
+                                <input type="text" />
+                            </div>
+                            <div class="input-container">
+                                <label>Email Address <span class="asterik">*</span></label>
+                                <input type="text" />
+                            </div>
+                        </div>
+                        <div class="input-container communication">
+                            <label>Your Preferred mode of communication(Optional)</label>
+                            <select class="custom-select">
+                                <option>Call Me</option>
+                            </select>
+                        </div>
+
+                        <div class="input-container phone-number">
+                            <label>Phone Number</label>
+                            <input type="text" />
+                        </div>
+
+                        <div class="input-container">
+                            <p class="terms-of-service">By clicking “Submit” you agree to the <span
+                                    class="underlined-text">Infomoby Business terms of use</span>
+                                and that our professionals will be able to contact you about our project</p>
+                        </div>
+                    </form>
+                </div>
+                <div *ngIf="currentTab === 2">
+                    <h1>What can a professional do for you?</h1>
+                    <div class="choose-section">
+                        <div class="radio-container">
+                            <input type="radio" id="domain-radio">
+                            <div>
+                                <h3>Design my website</h3>
+                                <p>New website form scratch, redesign an existing website, site migration</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="choose-section">
+                        <div class="radio-container">
+                            <input type="radio" id="domain-radio">
+                            <div>
+                                <h3>Get an online store</h3>
+                                <p>Sell products, get paid and add shipping</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="choose-section">
+                        <div class="radio-container">
+                            <input type="radio" id="domain-radio">
+                            <div>
+                                <h3>Other</h3>
+                                <p>Any other reason that is not listed above</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="other-questions" *ngIf="currentTab === 3">
+                    <h1>Anything else you want to add?</h1>
+
+                    <h3>Professionals may like to know:</h3>
+                    <ul>
+                        <li>
+                            Expectations and specific requirements
+                        </li>
+                        <li>
+                            Project timelines and budget
+                        </li>
+
+                        <li>
+                            Preferred way to work and communicate
+                        </li>
+                    </ul>
+                    <textarea></textarea>
+                </div>
+                <div class="submit-buttons">
+                    <button class="back-button" (click)="switchTab(-1)"><i class="fa-solid fa-arrow-left"></i>
+                        BACK</button>
+                    <button class="next-button" (click)="switchTab(1)">NEXT<i
+                            class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-4 how-it-works">
+            <div class="content">
+                <div class="main">
+                    <div class="main-text">
+                        <h5 class="header">How it works</h5>
+                        <ol>
+                            <li>
+                                <div>
+                                    <h6>Submit Your Project Details</h6>
+                                    <p>Provide your contact info, project type, and details through a form. </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h6>Connect with a specialist</h6>
+                                    <p>Our team matches you with an expert in your DIY field. </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h6>Get personalized assistance</h6>
+                                    <p>Receive tailored guidance from the specialist - step-by-step advice,
+                                        troubleshooting, and material suggestions</p>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="footer">
+                    <span><i class="fa-solid fa-circle-user"></i></span>
+                    <p>
+                        Professionals are dedicated experts that will help you achieve your website goals
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
