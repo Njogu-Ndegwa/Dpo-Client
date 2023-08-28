@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { TestService } from 'src/app/services/test.service';
 import { ActivatedRoute } from '@angular/router';
 import { FiveStepProcessService } from 'src/app/services/five-step-process/five-step-process.service';
+import { IframeControlService } from 'src/app/services/iframe/iframe-control.service';
+
 @Component({
   selector: 'app-onboarding',
   templateUrl: './onboarding.component.html',
@@ -21,7 +23,8 @@ export class OnboardingComponent implements OnInit {
     private router: Router,
     private testService: TestService,
     private route: ActivatedRoute,
-    private fiveStepProcessService: FiveStepProcessService
+    private fiveStepProcessService: FiveStepProcessService,
+    private iframeControlService: IframeControlService
   ) { }
 
   ngOnInit(): void {

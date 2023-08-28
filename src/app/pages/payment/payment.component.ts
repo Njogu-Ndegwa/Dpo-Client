@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PaymentsService } from 'src/app/services/payments/payments.service';
+import { IframeControlService } from 'src/app/services/iframe/iframe-control.service';
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
@@ -11,9 +12,12 @@ export class PaymentComponent implements OnInit {
   amountSelected:any
   isLoading:boolean = false
   isiframeVisible: boolean = false
+  iframe!: HTMLIFrameElement
   constructor(
     private router: Router,
-    private paymentService: PaymentsService
+    private paymentService: PaymentsService,
+    private iframeControlService: IframeControlService
+
   ) { }
 
   ngOnInit(): void {
@@ -44,28 +48,41 @@ export class PaymentComponent implements OnInit {
         trans_token: res['trans_token']
       };
       this.isiframeVisible = true
-      // this.router.navigate(['/checkout'], {queryParams})
-      const iframe = document.createElement("iframe");
-      iframe.src = `https://secure.3gdirectpay.com/payv3.php?ID=${transToken}`;
-      iframe.width = "800";
-      iframe.height = "600";
-      iframe.style.visibility = "hidden"; // Set the visibility property
-      // Append the iframe to the document body
-      document.body.appendChild(iframe);
-      
-      // Display the iframe (you might want to adjust visibility or other styles)
-      iframe.style.visibility = "visible";
 
-      
+      this.createIframe(transToken)
+
     })
     // this.router.navigate(['/checkout'])
   }
+createIframe(transToken:any) {
+  this.iframe = document.createElement("iframe");
+  this.iframe.src = `https://secure.3gdirectpay.com/payv3.php?ID=${transToken}`;
+  this.iframe.width = "800";
+  this.iframe.height = "600";
+  this.iframe.style.visibility = "hidden"; // Set the visibility property
+  // Append the iframe to the document body
+  document.body.appendChild(this.iframe);
+  
+  // Display the iframe (you might want to adjust visibility or other styles)
+  this.iframe.style.visibility = "visible";
+
+  this.setupCloseSubscription()
+}
 
 
   connectDomainFunction() {
     // @ts-ignore
     window.publishOverlayAPI.connectDomain()
 
+  }
+  setupCloseSubscription() {
+    this.iframeControlService.closeIframe$.subscribe(() => {
+      this.closeIframe();
+    });
+  }
+  
+  closeIframe() {
+    this.iframe.style.visibility = 'hidden';
   }
 
 }
