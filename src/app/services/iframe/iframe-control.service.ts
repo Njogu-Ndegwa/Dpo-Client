@@ -9,6 +9,8 @@ export class IframeControlService {
   closeIframe$ = this.closeIframeSubject.asObservable();
 
   closeIframe() {
+    console.log(this.closeIframe$)
+    console.log('------13----')
     this.closeIframeSubject.next();
   }
 }
