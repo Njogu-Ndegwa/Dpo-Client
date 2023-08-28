@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
 import { PaymentsService } from 'src/app/services/payments/payments.service';
 import { Notify } from 'notiflix';
-import { IframeControlService } from 'src/app/services/iframe/iframe-control.service';
+// import { IframeControlService } from 'src/app/services/iframe/iframe-control.service';
+import { SharedService } from 'src/app/services/iframe/iframe-control.service';
 
 @Component({
   selector: 'app-verify-payment',
@@ -11,12 +12,13 @@ import { IframeControlService } from 'src/app/services/iframe/iframe-control.ser
   styleUrls: ['./verify-payment.component.scss']
 })
 export class VerifyPaymentComponent implements OnInit {
-
+  @Output() callFunctionInA = new EventEmitter<void>();
   transactionToken: any
   constructor(
     private activatedRoute: ActivatedRoute,
     private paymentService: PaymentsService,
-    private iframeControlService: IframeControlService
+    // private iframeControlService: IframeControlService
+    private sharedService: SharedService
 
   ) {
     this.activatedRoute.queryParams.subscribe((param) => {
@@ -56,12 +58,16 @@ export class VerifyPaymentComponent implements OnInit {
   }
 
   closeIframeFromOtherComponent() {
-    this.iframeControlService.closeIframe();
+    // this.iframeControlService.closeIframe();
   }
 
 
   logPublishOverlayAPIcontent() {
     // @ts-ignore
     console.log(window.publishOverlayAPI)
+  }
+
+  triggerFunctionInA() {
+    this.callFunctionInA.emit();
   }
 }

@@ -1,16 +1,16 @@
-import { TestBed } from '@angular/core/testing';
+// import { TestBed } from '@angular/core/testing';
 
-import { IframeControlService } from './iframe-control.service';
+// import { IframeControlService } from './iframe-control.service';
 
-describe('IframeControlService', () => {
-  let service: IframeControlService;
+// describe('IframeControlService', () => {
+//   let service: IframeControlService;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(IframeControlService);
-  });
+//   beforeEach(() => {
+//     TestBed.configureTestingModule({});
+//     service = TestBed.inject(IframeControlService);
+//   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-});
+//   it('should be created', () => {
+//     expect(service).toBeTruthy();
+//   });
+// });

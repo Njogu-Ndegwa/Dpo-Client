@@ -1,16 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { TestService } from 'src/app/services/test.service';
 import { ActivatedRoute } from '@angular/router';
 import { FiveStepProcessService } from 'src/app/services/five-step-process/five-step-process.service';
-import { IframeControlService } from 'src/app/services/iframe/iframe-control.service';
-
+import { VerifyPaymentComponent } from '../payment/verify-payment/verify-payment.component';
 @Component({
   selector: 'app-onboarding',
   templateUrl: './onboarding.component.html',
   styleUrls: ['./onboarding.component.scss']
 })
 export class OnboardingComponent implements OnInit {
+  @ViewChild(VerifyPaymentComponent) verifyPaymentComponent!: VerifyPaymentComponent;
   isEdit: boolean = false
   ssoLink: any
   userId: any
@@ -24,7 +24,6 @@ export class OnboardingComponent implements OnInit {
     private testService: TestService,
     private route: ActivatedRoute,
     private fiveStepProcessService: FiveStepProcessService,
-    private iframeControlService: IframeControlService
   ) { }
 
   ngOnInit(): void {
@@ -52,9 +51,18 @@ export class OnboardingComponent implements OnInit {
       }
     })
 
+    if (this.verifyPaymentComponent) {
+      this.verifyPaymentComponent.callFunctionInA.subscribe(() => {
+        this.doSomethingInComponentA();
+      });
+    }
   }
   createSitesNoCode() {
     this.router.navigate(['/five-step-process'])
+  }
+
+  doSomethingInComponentA() {
+    console.log('Function in Component A was called.');
   }
 
   test() {

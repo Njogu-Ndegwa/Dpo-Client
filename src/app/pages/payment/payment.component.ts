@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PaymentsService } from 'src/app/services/payments/payments.service';
-import { IframeControlService } from 'src/app/services/iframe/iframe-control.service';
+import { SharedService } from 'src/app/services/iframe/iframe-control.service';
+// import { IframeControlService } from 'src/app/services/iframe/iframe-control.service';
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
@@ -16,7 +17,8 @@ export class PaymentComponent implements OnInit {
   constructor(
     private router: Router,
     private paymentService: PaymentsService,
-    private iframeControlService: IframeControlService
+    private sharedService: SharedService
+    // private iframeControlService: IframeControlService
 
   ) { }
 
@@ -66,7 +68,7 @@ createIframe(transToken:any) {
   // Display the iframe (you might want to adjust visibility or other styles)
   this.iframe.style.visibility = "visible";
 
-  this.setupCloseSubscription()
+  // this.setupCloseSubscription()
 }
 
 
@@ -75,11 +77,12 @@ createIframe(transToken:any) {
     window.publishOverlayAPI.connectDomain()
 
   }
-  setupCloseSubscription() {
-    this.iframeControlService.closeIframe$.subscribe(() => {
-      this.closeIframe();
-    });
-  }
+
+  // setupCloseSubscription() {
+  //   this.iframeControlService.closeIframe$.subscribe(() => {
+  //     this.closeIframe();
+  //   });
+  // }
   
   closeIframe() {
     this.iframe.style.visibility = 'hidden';
