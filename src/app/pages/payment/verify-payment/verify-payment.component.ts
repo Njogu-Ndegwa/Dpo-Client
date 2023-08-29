@@ -67,9 +67,8 @@ export class VerifyPaymentComponent implements OnInit {
     console.log(window.publishOverlayAPI)
   }
 
-  triggerFunctionInA() {
-    let data = 'Data'
-    this.sharedService.sendClickEvent(data);
-    console.log('-----72-----')
-  }
+  clickMe(){
+    console.log('-----71----')
+    this.sharedService.sendClickEvent();
+    }
 }

@@ -16,23 +16,26 @@ export class PaymentComponent implements OnInit {
   amountSelected:any
   isLoading:boolean = false
   isiframeVisible: boolean = false
-  iframe!: HTMLIFrameElement
+  iframe: HTMLIFrameElement | null = null;
   count:number = 0
   constructor(
     private router: Router,
     private paymentService: PaymentsService,
     private sharedService: SharedService
     // private iframeControlService: IframeControlService
-
-  ) { 
-    this.clickEventsubscription = this.sharedService.getClickEvent().subscribe(()=>{
-      this.incrementCount();
-      })
-  }
+  ) {
+    this.clickEventsubscription=    this.sharedService.getClickEvent().subscribe(()=>{
+    this.incrementCount();
+    })
+    }
 
   ngOnInit(): void {
   }
 
+  ngOnDestroy() {
+    // Clean up the iframe when the component is destroyed
+    this.destroyIframe();
+  }
   handleClick(sectionId: string) {
     this.amountSelected = parseInt(sectionId)
 
@@ -64,20 +67,38 @@ export class PaymentComponent implements OnInit {
     })
     // this.router.navigate(['/checkout'])
   }
-createIframe(transToken:any) {
-  this.iframe = document.createElement("iframe");
-  this.iframe.src = `https://secure.3gdirectpay.com/payv3.php?ID=${transToken}`;
-  this.iframe.width = "800";
-  this.iframe.height = "600";
-  this.iframe.style.visibility = "hidden"; // Set the visibility property
-  // Append the iframe to the document body
-  document.body.appendChild(this.iframe);
-  
-  // Display the iframe (you might want to adjust visibility or other styles)
-  this.iframe.style.visibility = "visible";
+  createLink(transToken: any) {
+    const link = document.createElement("a");
+    
+    const randomParam = Math.random().toString(36).substring(7); // Generate a random string
+    link.href = `https://secure.3gdirectpay.com/payv3.php?ID=${transToken}&ts=${randomParam}`;
+    link.target = "_blank"; // Open in a new tab or window
+    
+    // You can also add text to the link
+    link.textContent = "Click here to pay";
+    
+    // Append the link to the document body
+    document.body.appendChild(link);
+  }
 
-  // this.setupCloseSubscription()
+createIframe(transToken: any) {
+  this.createLink(transToken)
+  // this.iframe = document.createElement("iframe");
+  
+  // const randomParam = Math.random().toString(36).substring(7); // Generate a random string
+  // this.iframe.src = `https://secure.3gdirectpay.com/payv3.php?ID=${transToken}`;
+  
+  // this.iframe.width = "800";
+  // this.iframe.height = "600";
+  // this.iframe.style.visibility = "hidden";
+  
+  // // Append the iframe to the document body
+  // document.body.appendChild(this.iframe);
+
+  // // Display the iframe
+  // this.iframe.style.visibility = "visible";
 }
+
 
 
   connectDomainFunction() {
@@ -92,16 +113,29 @@ createIframe(transToken:any) {
   //   });
   // }
   
-  closeIframe() {
-    this.iframe.style.visibility = 'hidden';
-  }
+  // closeIframe() {
+  //   this.iframe.style.visibility = 'hidden';
+  // }
 
   incrementCount(){
     this.count++;
-
-    console.log('Function in B is being called')
-
-    this.iframe.style.visibility = 'hidden';
+    // this.iframe.style.visibility = 'hidden';
     }
+
+    destroyIframe() {
+      if (this.iframe) {
+        // Set the iframe's src to about:blank to stop any ongoing requests
+        this.iframe.src = 'about:blank';
+    
+        // Remove the iframe from the DOM
+        if (this.iframe.parentNode) {
+          this.iframe.parentNode.removeChild(this.iframe);
+        }
+    
+        // Set the iframe reference to null to release the memory
+        this.iframe = null;
+      }
+    }
+    
 
 }
