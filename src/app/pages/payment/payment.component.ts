@@ -17,6 +17,7 @@ export class PaymentComponent implements OnInit {
   isLoading:boolean = false
   isiframeVisible: boolean = false
   iframe: HTMLIFrameElement | null = null;
+  clientPaid:boolean = false
   count:number = 0
   constructor(
     private router: Router,
@@ -113,6 +114,7 @@ createIframe(transToken: any) {
     // this.count++;
     // this.iframe.style.visibility = 'hidden';
     this.destroyIframe();
+    this.clientPaid = true
     }
 
 
