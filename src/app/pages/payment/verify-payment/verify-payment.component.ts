@@ -39,9 +39,10 @@ export class VerifyPaymentComponent implements OnInit {
         if (res['amount'] === '5500.00') {
 
         } else if (res['amount'] === '7750.00') {
-          this.initiateConnectDomain()
+          setTimeout(() => {
+            this.initiateConnectDomain()
+          }, 1000)
         }
-        // window.publishOverlayAPI.connectDomain()
       }
       else {
         Notify.failure('Payment not Succesful')
