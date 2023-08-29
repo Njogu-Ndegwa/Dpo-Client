@@ -36,9 +36,9 @@ export class VerifyPaymentComponent implements OnInit {
       console.log(res, 'The Result')
       if (res['status'] === 'paid') {
         Notify.success('Payment Succesfult')
-        if (res['amount'] === '5500') {
+        if (res['amount'] === '5500.00') {
 
-        } else if (res['amount'] === '7750') {
+        } else if (res['amount'] === '7750.00') {
           this.initiateConnectDomain()
         }
         // window.publishOverlayAPI.connectDomain()
