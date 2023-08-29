@@ -24,12 +24,18 @@ export class PaymentComponent implements OnInit {
     private sharedService: SharedService
     // private iframeControlService: IframeControlService
   ) {
-    this.clickEventsubscription=    this.sharedService.getClickEvent().subscribe(()=>{
-    this.incrementCount();
-    })
+
     }
 
   ngOnInit(): void {
+    window.addEventListener('message', this.receiveMessage.bind(this), false);
+  }
+
+  receiveMessage(event: MessageEvent): void {
+    if (event.origin === 'origin-of-component-b') {
+      // Assuming 'incrementCount' is a method in ComponentA
+      this.incrementCount();
+    }
   }
 
   ngOnDestroy() {

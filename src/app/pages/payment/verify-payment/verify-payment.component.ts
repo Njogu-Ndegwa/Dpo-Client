@@ -68,7 +68,9 @@ export class VerifyPaymentComponent implements OnInit {
   }
 
   clickMe(){
-    console.log('-----71----')
-    this.sharedService.sendClickEvent();
+    const parentWindow = window.parent;
+    if (parentWindow) {
+      parentWindow.postMessage('clickEvent', 'origin-of-component-b');
+    }
     }
 }
