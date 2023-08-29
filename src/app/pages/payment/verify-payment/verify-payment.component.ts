@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PaymentsService } from 'src/app/services/payments/payments.service';
 import { Notify } from 'notiflix';
 // import { IframeControlService } from 'src/app/services/iframe/iframe-control.service';
@@ -18,8 +18,8 @@ export class VerifyPaymentComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private paymentService: PaymentsService,
-    // private iframeControlService: IframeControlService
-    private sharedService: SharedService
+    private sharedService: SharedService,
+    private router: Router
 
   ) {
     this.activatedRoute.queryParams.subscribe((param) => {
@@ -42,7 +42,10 @@ export class VerifyPaymentComponent implements OnInit {
       if (res['status'] === 'paid') {
         Notify.success('Payment Successful')
         if (res['amount'] === '5500.00') {
-
+          setTimeout(() => {
+            this.isLoading = false
+            this.router.navigate(['/publish-site'])
+          }, 1000)
         } else if (res['amount'] === '7750.00') {
           setTimeout(() => {
             this.isLoading = false

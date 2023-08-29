@@ -85,6 +85,14 @@ const routes: Routes = [
       ),
       canActivate: [AuthGuard]
   },
+  {
+    path: 'publish-site',
+    loadChildren: () =>
+      import('./pages/publish/publish.module').then(
+        (m) => m.PublishModule
+      ),
+      canActivate: [AuthGuard]
+  },
 
 ];
 
