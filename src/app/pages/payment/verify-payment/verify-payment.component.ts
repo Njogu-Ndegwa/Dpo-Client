@@ -34,6 +34,7 @@ export class VerifyPaymentComponent implements OnInit {
 
 
   verifyPayment() {
+    window.scrollTo(0, 0);
     console.log(this.transactionToken, 'The Transaction Token')
     this.isLoading = true
     this.paymentService.verifyPaymentService(this.transactionToken).subscribe((res: any) => {
