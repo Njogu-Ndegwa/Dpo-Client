@@ -39,7 +39,7 @@ export class VerifyPaymentComponent implements OnInit {
         if (res['amount'] === '5500') {
 
         } else if (res['amount'] === '7750') {
-
+          this.initiateConnectDomain()
         }
         // window.publishOverlayAPI.connectDomain()
       }
@@ -67,7 +67,7 @@ export class VerifyPaymentComponent implements OnInit {
     console.log(window.publishOverlayAPI)
   }
 
-  clickMe(){
+  initiateConnectDomain(){
     const parentWindow = window.parent;
     if (parentWindow) {
       parentWindow.postMessage('clickEvent', 'https://diy.infomoby.com');

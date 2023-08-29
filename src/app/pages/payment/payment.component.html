@@ -2,26 +2,26 @@
     <div class="content">
         <h1 class="heading">Your total cost</h1>
 
-        <div class="choose-section"  (click)="handleClick('65')" [style]="{ 'border': isSectionSelected('65') ? '1.5px solid #24A0ED' : '1.5px solid black' }">
+        <div class="choose-section"  (click)="handleClick('5500')" [style]="{ 'border': isSectionSelected('5500') ? '1.5px solid #24A0ED' : '1.5px solid black' }">
             <div class="radio-container">
-                <input type="radio" id="domain-radio" [checked]="isSectionSelected('65')">
+                <input type="radio" id="domain-radio" [checked]="isSectionSelected('5500')">
                 <div>
                     <h3>Purchase a domain</h3>
                     <p>This cost covers editor usage fees + Domain name purchase</p>
                 </div>
             </div>
-            <p class="money">$65 USD</p>
+            <p class="money">5500 KSH</p>
         </div>
 
-        <div class="choose-section" (click)="handleClick('50')" [style]="{ 'border': isSectionSelected('50') ? '1.5px solid #24A0ED' : '1.5px solid black' }">
+        <div class="choose-section" (click)="handleClick('7750')" [style]="{ 'border': isSectionSelected('7750') ? '1.5px solid #24A0ED' : '1.5px solid black' }">
             <div class="radio-container">
-                <input type="radio" id="domain-radio" [checked]="isSectionSelected('50')">
+                <input type="radio" id="domain-radio" [checked]="isSectionSelected('7750')">
                 <div>
                     <h3>Connect your own domain</h3>
                     <p>This cost covers editor usage fees </p>
                 </div>
             </div>
-            <p class="money">$50 USD</p>
+            <p class="money">7750 KSH</p>
         </div>
 
         <button (click)="proceedToPayment()" class="proceed-button">
@@ -31,7 +31,3 @@
     </div>
 </div>
 
-
-<div *ngIf="clientPaid">
-<button (click)="connectDomainFunction()"> Connect to Domain</button>
-</div>
