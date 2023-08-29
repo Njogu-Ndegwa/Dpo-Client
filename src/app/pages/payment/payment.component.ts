@@ -67,36 +67,22 @@ export class PaymentComponent implements OnInit {
     })
     // this.router.navigate(['/checkout'])
   }
-  createLink(transToken: any) {
-    const link = document.createElement("a");
-    
-    const randomParam = Math.random().toString(36).substring(7); // Generate a random string
-    link.href = `https://secure.3gdirectpay.com/payv3.php?ID=${transToken}&ts=${randomParam}`;
-    link.target = "_blank"; // Open in a new tab or window
-    
-    // You can also add text to the link
-    link.textContent = "Click here to pay";
-    
-    // Append the link to the document body
-    document.body.appendChild(link);
-  }
 
 createIframe(transToken: any) {
-  this.createLink(transToken)
-  // this.iframe = document.createElement("iframe");
+  this.iframe = document.createElement("iframe");
   
-  // const randomParam = Math.random().toString(36).substring(7); // Generate a random string
-  // this.iframe.src = `https://secure.3gdirectpay.com/payv3.php?ID=${transToken}`;
+  const randomParam = Math.random().toString(36).substring(7); // Generate a random string
+  this.iframe.src = `https://secure.3gdirectpay.com/payv3.php?ID=${transToken}&ts=${randomParam}`;
   
-  // this.iframe.width = "800";
-  // this.iframe.height = "600";
-  // this.iframe.style.visibility = "hidden";
+  this.iframe.width = "800";
+  this.iframe.height = "600";
+  this.iframe.style.visibility = "hidden";
   
-  // // Append the iframe to the document body
-  // document.body.appendChild(this.iframe);
+  // Append the iframe to the document body
+  document.body.appendChild(this.iframe);
 
-  // // Display the iframe
-  // this.iframe.style.visibility = "visible";
+  // Display the iframe
+  this.iframe.style.visibility = "visible";
 }
 
 
