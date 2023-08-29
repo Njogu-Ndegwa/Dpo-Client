@@ -22,8 +22,8 @@ providedIn: 'root'
 })
 export class SharedService {
 private subject = new Subject<any>();
-sendClickEvent() {
-  this.subject.next(undefined);
+sendClickEvent(data:any) {
+  this.subject.next(data);
 }
 getClickEvent(): Observable<any>{ 
   return this.subject.asObservable();

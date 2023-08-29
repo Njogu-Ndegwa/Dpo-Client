@@ -97,7 +97,7 @@ createIframe(transToken:any) {
   }
 
   incrementCount(){
-    // this.count++;
+    this.count++;
 
     console.log('Function in B is being called')
 
