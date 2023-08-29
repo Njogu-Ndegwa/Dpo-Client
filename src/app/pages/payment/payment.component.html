@@ -29,8 +29,9 @@
             <i *ngIf="isLoading" class="fas fa-spinner fa-spin"></i>
         </button>
     </div>
-
-    <button (click)="connectDomainFunction()"></button>
-    <button (click)="originWindow()">Origin</button>
 </div>
-<p>{{count}}</p>
+
+
+<div *ngIf="isiframeVisible">
+<button (click)="connectDomainFunction()"> Connect to Domain</button>
+</div>
