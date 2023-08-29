@@ -16,21 +16,17 @@
 // }
 
 import { Injectable } from '@angular/core';
-
+import { Observable, Subject } from 'rxjs';
 @Injectable({
-  providedIn: 'root'
+providedIn: 'root'
 })
 export class SharedService {
-  private callback!: Function;
-
-  setCallback(callback: Function) {
-    this.callback = callback;
-  }
-
-  triggerCallback() {
-    if (this.callback) {
-      this.callback();
-    }
-  }
+private subject = new Subject<any>();
+sendClickEvent() {
+  this.subject.next(undefined);
+}
+getClickEvent(): Observable<any>{ 
+  return this.subject.asObservable();
+}
 }
 

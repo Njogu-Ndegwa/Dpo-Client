@@ -3,24 +3,32 @@ import { Router } from '@angular/router';
 import { PaymentsService } from 'src/app/services/payments/payments.service';
 import { SharedService } from 'src/app/services/iframe/iframe-control.service';
 // import { IframeControlService } from 'src/app/services/iframe/iframe-control.service';
+
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
   styleUrls: ['./payment.component.scss']
 })
 export class PaymentComponent implements OnInit {
+  clickEventsubscription!:Subscription;
   selected: string | null = null;
   amountSelected:any
   isLoading:boolean = false
   isiframeVisible: boolean = false
   iframe!: HTMLIFrameElement
+  count:number = 0
   constructor(
     private router: Router,
     private paymentService: PaymentsService,
     private sharedService: SharedService
     // private iframeControlService: IframeControlService
 
-  ) { }
+  ) { 
+    this.clickEventsubscription = this.sharedService.getClickEvent().subscribe(()=>{
+      this.incrementCount();
+      })
+  }
 
   ngOnInit(): void {
   }
@@ -87,5 +95,9 @@ createIframe(transToken:any) {
   closeIframe() {
     this.iframe.style.visibility = 'hidden';
   }
+
+  incrementCount(){
+    this.count++;
+    }
 
 }

@@ -68,6 +68,6 @@ export class VerifyPaymentComponent implements OnInit {
   }
 
   triggerFunctionInA() {
-    this.callFunctionInA.emit();
+    this.sharedService.sendClickEvent();
   }
 }
