@@ -68,9 +68,12 @@ export class VerifyPaymentComponent implements OnInit {
   }
 
   clickMe(){
-    const parentWindow = window.parent;
-    if (parentWindow) {
-      parentWindow.postMessage('clickEvent', 'origin-of-component-b');
-    }
-    }
+    // const parentWindow = window.parent;
+    // if (parentWindow) {
+    //   parentWindow.postMessage('clickEvent', 'origin-of-component-b');
+    // }
+
+    console.log('Child Window Origin:', window.location.origin);
+
+  }
 }

@@ -114,6 +114,11 @@ createIframe(transToken: any) {
     // this.iframe.style.visibility = 'hidden';
     }
 
+
+    originWindow() {
+      console.log('Parent Window Origin:', window.location.origin);
+    }
+
     destroyIframe() {
       if (this.iframe) {
         // Set the iframe's src to about:blank to stop any ongoing requests
