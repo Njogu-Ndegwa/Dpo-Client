@@ -110,8 +110,9 @@ createIframe(transToken: any) {
   // }
 
   incrementCount(){
-    this.count++;
+    // this.count++;
     // this.iframe.style.visibility = 'hidden';
+    this.destroyIframe();
     }
 
 
@@ -120,6 +121,7 @@ createIframe(transToken: any) {
     }
 
     destroyIframe() {
+      console.log('Function is Called')
       if (this.iframe) {
         // Set the iframe's src to about:blank to stop any ongoing requests
         this.iframe.src = 'about:blank';
