@@ -1,17 +1,3 @@
-<p>verify-payment works!</p>
-
-<button (click)="verifyPayment()">
-    Verify
-</button>
-
-<br>
-
-<button (click)="connectDomainFunction()">
-    Connect Domain
-</button>
-
-<br>
-<button (click)="logPublishOverlayAPIcontent()" >Test Whether I'm using the right publishOverlayAPI</button>
-<br>
-<!-- <button (click)="closeIframeFromOtherComponent()">Close Iframe</button> -->
-
+<div class="loader-content" *ngIf="isLoading">
+    <div class="loader"></div>
+</div>
