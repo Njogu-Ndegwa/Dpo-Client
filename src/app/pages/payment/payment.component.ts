@@ -32,7 +32,7 @@ export class PaymentComponent implements OnInit {
   }
 
   receiveMessage(event: MessageEvent): void {
-    if (event.origin === 'origin-of-component-b') {
+    if (event.origin === 'https://diy.infomoby.com') {
       // Assuming 'incrementCount' is a method in ComponentA
       this.incrementCount();
     }
