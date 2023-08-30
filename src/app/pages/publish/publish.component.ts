@@ -39,7 +39,7 @@ export class PublishComponent implements OnInit {
           if (parentWindow) {
             parentWindow.postMessage('publishSite', 'https://diy.infomoby.com');
           }
-        }, 500)
+        },1500)
       }else if(res['message'] === 'error'){
         Notify.failure('There was an error publishing your site. Please try again')
         Loading.remove()

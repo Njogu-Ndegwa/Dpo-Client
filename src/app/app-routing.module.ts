@@ -78,21 +78,21 @@ const routes: Routes = [
   },
 
   {
-    path: 'add-contact',
+    path: 'publish-site',
     loadChildren: () =>
       import('./pages/hire-a-proffesional/add-contact/add-contact.module').then(
         (m) => m.AddContactModule
       ),
       canActivate: [AuthGuard]
-  },
-  {
-    path: 'publish-site',
-    loadChildren: () =>
-      import('./pages/publish/publish.module').then(
-        (m) => m.PublishModule
-      ),
-      canActivate: [AuthGuard]
-  },
+  }
+  // {
+  //   path: 'publish-site',
+  //   loadChildren: () =>
+  //     import('./pages/publish/publish.module').then(
+  //       (m) => m.PublishModule
+  //     ),
+  //     canActivate: [AuthGuard]
+  // },
 
 ];
 
