@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { Notify } from 'notiflix';
+import { Loading, Notify } from 'notiflix';
 import { FiveStepProcessService } from 'src/app/services/five-step-process/five-step-process.service';
 
 @Component({
@@ -27,10 +27,13 @@ export class PublishComponent implements OnInit {
   }
 
   publishSite() {
+    Loading.pulse('Loading...')
     let domain: any = this.myForm.get('domain')!.value;
     this.fiveStepProcess.publishSite(this.siteName, domain).subscribe((res:any)=> {
       if(res['message'] === 'success'){
         Notify.success('Site Published Succesfully')
+        Loading.remove()
+        this.myForm.reset()
         setTimeout(() => {
           const parentWindow = window.parent;
           if (parentWindow) {
@@ -39,6 +42,7 @@ export class PublishComponent implements OnInit {
         }, 500)
       }else if(res['message'] === 'error'){
         Notify.failure('There was an error publishing your site. Please try again')
+        Loading.remove()
       }
     })
     console.log(domain, 'The Domain');
