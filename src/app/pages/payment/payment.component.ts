@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { PaymentsService } from 'src/app/services/payments/payments.service';
 import { SharedService } from 'src/app/services/iframe/iframe-control.service';
 // import { IframeControlService } from 'src/app/services/iframe/iframe-control.service';
@@ -22,7 +22,8 @@ export class PaymentComponent implements OnInit {
   constructor(
     private router: Router,
     private paymentService: PaymentsService,
-    private sharedService: SharedService
+    private sharedService: SharedService,
+    private activatedRoute: ActivatedRoute
     // private iframeControlService: IframeControlService
   ) {
 
@@ -30,6 +31,9 @@ export class PaymentComponent implements OnInit {
 
   ngOnInit(): void {
     window.addEventListener('message', this.receiveMessage.bind(this), false);
+    this.activatedRoute.queryParams.subscribe((params) => {
+      console.log('Params', params['sitename'])
+    })
   }
 
   receiveMessage(event: MessageEvent): void {
