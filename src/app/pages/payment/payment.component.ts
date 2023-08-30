@@ -38,8 +38,22 @@ export class PaymentComponent implements OnInit {
 
   receiveMessage(event: MessageEvent): void {
     if (event.origin === 'https://diy.infomoby.com') {
-      this.connectDomainFunction();
+      const receivedMessage = event.data
+      if (receivedMessage === 'connectDomain') {
+        this.connectDomainFunction();
+      }else if (receivedMessage === 'publishSite') {
+        this.publishSite()
+      }
     }
+  }
+
+  publishSite(){
+    // @ts-ignore
+    window.publishOverlayAPI.publishDone()
+    setTimeout(() => {
+    // @ts-ignore
+    window.publishOverlayAPI.closeOverlay()
+    }, 100)
   }
 
   ngOnDestroy() {

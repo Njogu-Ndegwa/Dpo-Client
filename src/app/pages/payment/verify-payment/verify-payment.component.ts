@@ -80,7 +80,7 @@ export class VerifyPaymentComponent implements OnInit {
   initiateConnectDomain(){
     const parentWindow = window.parent;
     if (parentWindow) {
-      parentWindow.postMessage('clickEvent', 'https://diy.infomoby.com');
+      parentWindow.postMessage('connectDomain', 'https://diy.infomoby.com');
     }
 
 

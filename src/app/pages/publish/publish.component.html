@@ -1,14 +1,14 @@
 <div class="main-container">
     <div class="input-container">
  
-        <form class="form">
+        <form class="form" [formGroup]="myForm">
             <h3 style="margin-top: 5rem;">Enter Your Sites Domain</h3>
             <div class="input-div">
                 <label>Domain</label>
-                <input class="domain-input" type="text"/>
+                <input class="domain-input" formControlName="domain" type="text"/>
             </div>
             <div class="input-div">
-                <button>Submit</button>
+                <button (click)="publishSite()">Submit</button>
             </div>
         </form>
     </div>

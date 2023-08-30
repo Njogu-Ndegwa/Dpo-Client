@@ -49,4 +49,10 @@ export class FiveStepProcessService {
       
     })
   }
+  publishSite(siteName:string, domain:string){
+    return this.httpClient.post(`${environment.api}publish-site`, {
+      site_name: siteName,
+      domain: domain
+    })
+  }
 }
