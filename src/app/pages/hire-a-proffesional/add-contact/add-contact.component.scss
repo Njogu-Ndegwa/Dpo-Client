@@ -39,6 +39,10 @@
                 border-radius: 5px;
             }
 
+            .input-field:focus {
+                outline: none;
+            }
+
             select {
                 border: 1.2px solid var(--ui-blue, #04A9F4);
                 height: 36px;
