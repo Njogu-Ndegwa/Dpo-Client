@@ -30,6 +30,7 @@ export class PublishComponent implements OnInit {
     Loading.pulse('Loading...')
     let domain: any = this.myForm.get('domain')!.value;
     this.fiveStepProcess.publishSite(this.siteName, domain).subscribe((res:any)=> {
+      console.log(res, 'The Result of the Page----33----')
       if(res['message'] === 'success'){
         Notify.success('Site Published Succesfully')
         Loading.remove()
