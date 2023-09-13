@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Loading } from 'notiflix';
+import { Loading, Notify } from 'notiflix';
 import { HireProffesionalService } from 'src/app/services/hire-professional/hire-proffesional.service';
 @Component({
   selector: 'app-add-contact',
@@ -64,10 +64,20 @@ export class AddContactComponent implements OnInit {
 
   addContact() {
     Loading.pulse('Loading...')
-    this.hireProffesional.hireProfessionalService(this.fullName, this.emailAddress, this.phoneNumber, this.communicationMode, this.assistanceType, this.other).subscribe((res) => {
+    this.hireProffesional.hireProfessionalService(this.fullName, this.emailAddress, this.phoneNumber, this.communicationMode, this.assistanceType, this.other).subscribe((res:any) => {
       console.log(res)
       Loading.remove()
+      if(res['full_name']) {
+
+        Notify.success('Email Sent Succesfully')
+      } else{
+        Notify.failure('There was a problem sending the email')
+      }
+
     })
+  }
+  goBackHome() {
+    this.router.navigate([''])
   }
 
 }
