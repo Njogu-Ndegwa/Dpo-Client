@@ -1,30 +1,31 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-8 section-container">
+        <div class="col-md-8 section-container" *ngIf="currentTab !==4">
             <div class="inner-container">
                 <div *ngIf="currentTab === 1">
                     <h1>Add your contact info</h1>
-                    <form>
+                    <!-- <form> -->
                         <div class="top-row">
                             <div class="input-container">
                                 <label>Full Name <span class="asterik">*</span></label>
-                                <input class="input-field" type="text" />
+                                <input [(ngModel)]="fullName" class="input-field" type="text" />
                             </div>
                             <div class="input-container">
                                 <label>Email Address <span class="asterik">*</span></label>
-                                <input class="input-field" type="text" />
+                                <input [(ngModel)]="emailAddress" class="input-field" type="text" />
                             </div>
                         </div>
                         <div class="input-container communication">
                             <label>Your Preferred mode of communication(Optional)</label>
-                            <select class="custom-select">
-                                <option>Call Me</option>
+                            <select [(ngModel)]="communicationMode" class="custom-select">
+                                <option value="call">Call Me</option>
+                                <option value="email">Email Me</option>
                             </select>
                         </div>
 
                         <div class="input-container phone-number">
                             <label>Phone Number</label>
-                            <input class="input-field" type="text" />
+                            <input [(ngModel)]="phoneNumber" class="input-field" type="text" />
                         </div>
 
                         <div class="input-container">
@@ -32,13 +33,13 @@
                                     class="underlined-text">Infomoby Business terms of use</span>
                                 and that our professionals will be able to contact you about our project</p>
                         </div>
-                    </form>
+                    <!-- </form> -->
                 </div>
                 <div *ngIf="currentTab === 2">
                     <h1>What can a professional do for you?</h1>
-                    <div class="choose-section">
+                    <div class="choose-section" (click)="handleClick('1')" [style]="{ 'border': isSectionSelected('1') ? '1.5px solid #24A0ED' : '1.5px solid black' }">
                         <div class="radio-container">
-                            <input type="radio" id="domain-radio">
+                            <input type="radio" id="domain-radio" [checked]="isSectionSelected('1')">
                             <div>
                                 <h3>Design my website</h3>
                                 <p>New website form scratch, redesign an existing website, site migration</p>
@@ -46,18 +47,18 @@
                         </div>
                     </div>
 
-                    <div class="choose-section">
+                    <div class="choose-section" (click)="handleClick('2')" [style]="{ 'border': isSectionSelected('2') ? '1.5px solid #24A0ED' : '1.5px solid black' }">
                         <div class="radio-container">
-                            <input type="radio" id="domain-radio">
+                            <input type="radio" id="domain-radio" [checked]="isSectionSelected('2')">
                             <div>
                                 <h3>Get an online store</h3>
                                 <p>Sell products, get paid and add shipping</p>
                             </div>
                         </div>
                     </div>
-                    <div class="choose-section">
+                    <div class="choose-section" (click)="handleClick('3')" [style]="{ 'border': isSectionSelected('3') ? '1.5px solid #24A0ED' : '1.5px solid black' }">
                         <div class="radio-container">
-                            <input type="radio" id="domain-radio">
+                            <input type="radio" id="domain-radio" [checked]="isSectionSelected('3')">
                             <div>
                                 <h3>Other</h3>
                                 <p>Any other reason that is not listed above</p>
@@ -81,7 +82,7 @@
                             Preferred way to work and communicate
                         </li>
                     </ul>
-                    <textarea></textarea>
+                    <textarea [(ngModel)]="other"></textarea>
                 </div>
                 <div class="submit-buttons">
                     <button class="back-button" (click)="switchTab(-1)"><i class="fa-solid fa-arrow-left"></i>
@@ -90,9 +91,9 @@
                             class="fa-solid fa-arrow-right"></i></button>
                 </div>
             </div>
-
         </div>
-        <div class="col-md-4 how-it-works">
+
+        <div class="col-md-4 how-it-works" *ngIf="currentTab !==4">
             <div class="content">
                 <div class="main">
                     <div class="main-text">
@@ -125,6 +126,42 @@
                     <p>
                         Professionals are dedicated experts that will help you achieve your website goals
                     </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center; height: 100vh" *ngIf="currentTab === 4">
+        <div class="thank-you-page">
+            <div class="thank-you-content">
+                <div class="yes-icon">
+                    <div>
+                        <svg width="150" height="150" viewBox="0 0 212 212" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path id="Subtract" fill-rule="evenodd" clip-rule="evenodd"
+                                d="M129.108 20.0705C127.828 19.7234 127.021 18.4382 127.319 17.1465C129.786 6.46565 132.166 -0.55773 134.392 0.034813C136.702 0.651349 135.304 7.9371 132.127 18.4293C131.74 19.7057 130.395 20.4196 129.108 20.0705ZM168.857 43.143C167.906 42.1925 167.851 40.6562 168.769 39.6748C176.271 31.6592 181.876 26.7801 183.539 28.4431C185.202 30.1058 180.332 35.7179 172.328 43.2287C171.346 44.1494 169.808 44.0945 168.857 43.143ZM191.928 82.8887C191.577 81.5964 192.295 80.2456 193.576 79.8589C204.064 76.6948 211.346 75.3044 211.963 77.6049C212.555 79.8302 205.537 82.2131 194.862 84.6829C193.566 84.9828 192.276 84.1725 191.928 82.8887ZM192.101 129.167C192.443 127.871 193.741 127.048 195.047 127.351C205.627 129.808 212.564 132.177 211.963 134.391C211.35 136.687 204.148 135.319 193.757 132.183C192.481 131.797 191.762 130.456 192.101 129.167ZM169.199 169.219C170.155 168.252 171.712 168.192 172.703 169.124C180.492 176.447 185.191 181.901 183.554 183.538C181.918 185.174 176.457 180.484 169.126 172.706C168.199 171.723 168.249 170.179 169.199 169.219ZM129.283 192.587C130.588 192.23 131.955 192.957 132.342 194.254C135.361 204.376 136.643 211.358 134.392 211.961C132.215 212.541 129.89 205.835 127.481 195.548C127.176 194.243 127.99 192.941 129.283 192.587ZM82.6539 192.761C83.9581 193.107 84.7833 194.417 84.4746 195.73C82.0809 205.914 79.7705 212.537 77.6063 211.961C75.3604 211.362 76.6198 204.458 79.6113 194.433C79.9964 193.143 81.3521 192.415 82.6539 192.761ZM42.4343 169.561C43.3993 170.527 43.4532 172.088 42.5161 173.08C35.3735 180.642 30.0697 185.163 28.4598 183.553C26.8503 181.943 31.3623 176.633 38.913 169.482C39.9049 168.543 41.4684 168.596 42.4343 169.561ZM19.2375 129.344C19.5843 130.65 18.8538 132.011 17.5581 132.396C7.53612 135.375 0.635288 136.628 0.0362134 134.391C-0.539728 132.227 6.07946 129.915 16.2589 127.518C17.5764 127.208 18.8903 128.036 19.2375 129.344ZM19.3997 82.7593C19.0518 84.0341 17.7684 84.8364 16.4819 84.5349C6.16727 82.1179 -0.556056 79.7857 0.0362134 77.6049C0.64501 75.3239 7.6501 76.6586 17.7727 79.7517C19.0416 80.1394 19.749 81.4794 19.3997 82.7593ZM42.6526 42.9264C41.6895 43.8829 40.1353 43.9281 39.1551 42.989C31.4501 35.6074 26.7992 30.1037 28.4445 28.4584C30.0922 26.8107 35.5109 31.5784 42.761 39.454C43.6717 40.4433 43.6067 41.9788 42.6526 42.9264ZM82.7017 19.9318C81.3298 20.2951 79.903 19.5191 79.514 18.1543C76.5655 7.80982 75.3253 0.645722 77.6063 0.034813C79.8107 -0.551966 82.1666 6.32973 84.6079 16.8359C84.9265 18.2071 84.0625 19.5715 82.7017 19.9318Z"
+                                fill="#FFAE09" />
+                        </svg>
+                        <div style="margin-top: -8.3rem; margin-left: 1.1rem;">
+                            <svg class="svg-tick" width="115" height="115" viewBox="0 0 150 150" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g id="Frame 23">
+                                    <g id="Group 24">
+                                        <path id="Vector"
+                                            d="M142.588 74.9932C142.588 68.5347 151.394 60.9352 149.8 54.9503C148.143 48.7608 136.679 46.6188 133.546 41.1936C130.414 35.7685 134.203 24.7136 129.736 20.2465C125.269 15.7793 114.3 19.6329 108.789 16.4467C103.278 13.2605 101.254 1.85045 95.0429 0.192762C89.058 -1.40034 81.4908 7.40479 75 7.40479C68.5092 7.40479 60.9419 -1.40034 54.957 0.192762C48.7676 1.85045 46.6256 13.3143 41.2004 16.4467C35.7752 19.5791 24.7204 15.7901 20.2533 20.2572C15.7861 24.7244 19.6397 35.6931 16.4535 41.2044C13.2673 46.7156 1.85725 48.7393 0.199563 54.9503C-1.42583 60.9352 7.41157 68.5347 7.41157 74.9932C7.41157 81.4517 -1.39354 89.0512 0.199563 95.0361C1.85725 101.226 13.3211 103.368 16.4535 108.793C19.5859 114.218 15.7969 125.273 20.264 129.74C24.7312 134.207 35.6999 130.354 41.2112 133.54C46.7224 136.726 48.7461 148.136 54.957 149.794C60.9419 151.387 68.5092 142.582 75 142.582C81.4908 142.582 89.058 151.387 95.0429 149.794C101.232 148.136 103.374 136.672 108.8 133.54C114.225 130.407 125.28 134.196 129.747 129.729C134.214 125.262 130.36 114.293 133.546 108.782C136.733 103.271 148.143 101.247 149.8 95.0361C151.426 89.0512 142.588 81.4517 142.588 74.9932Z"
+                                            fill="#04A9F4" />
+                                        <path id="Vector_2"
+                                            d="M75.012 98.3525C73.567 100.447 70.5591 100.678 68.8115 98.828L43.0023 71.5061C42.3314 70.7924 41.9715 69.8414 42.0018 68.8624C42.032 67.8833 42.45 66.9564 43.1637 66.2855C43.8774 65.6146 44.8284 65.2547 45.8075 65.285C46.7865 65.3153 47.7135 65.7333 48.3844 66.447L67.918 87.1361C69.6654 88.9869 72.674 88.7565 74.1192 86.6612L100.268 48.7506C100.531 48.325 100.878 47.9573 101.288 47.6698C101.697 47.3824 102.161 47.1812 102.651 47.0785C103.14 46.9759 103.646 46.9738 104.137 47.0726C104.627 47.1713 105.093 47.3687 105.504 47.6528C105.916 47.9369 106.266 48.3018 106.533 48.7253C106.799 49.1488 106.977 49.6221 107.055 50.1164C107.133 50.6107 107.11 51.1157 106.987 51.6007C106.864 52.0858 106.643 52.5407 106.339 52.9379L75.012 98.3525Z"
+                                            fill="white" />
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <p class="message">Thank you for your message!</p>
+                <p class="sub-message">We will contact you soon</p>
+                <div class="submit-button">
+                    <button>GO BACK HOME</button>
                 </div>
             </div>
         </div>
