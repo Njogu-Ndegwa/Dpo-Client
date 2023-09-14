@@ -53,6 +53,8 @@
                                 <!-- <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' :
                                     'visibility'}}</mat-icon>
                             </mat-form-field> -->
+                            <i (click)="hide = !hide"  class="fa fa-eye eye-icon" *ngIf="!hide"></i>
+                            <i (click)="hide = !hide"  class="fa fa-eye-slash eye-icon" *ngIf="hide"></i>
                             <button (click)="onSubmit()" type="submit" class="login-button" style="width: 100%;">
                                 Create Account
                                 <i *ngIf="loading" style="display: inline-block; margin-left: 3rem;" class="fas fa-spinner fa-spin"></i>

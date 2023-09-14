@@ -36,6 +36,8 @@
                 border: 1.2px solid var(--ui-blue, #04A9F4);
                 height: 36px;
                 border-radius: 5px;
+                text-indent: 1rem;
+                
             }
 
             .input-field:focus {
@@ -190,6 +192,11 @@
                 border-radius: 8px;
                 border: 1px solid #D6D6D6;
                 margin-bottom: 2rem;
+                text-indent: 1rem;
+            }
+            .custom-textarea:focus {
+                border: 1px solid #D6D6D6;
+                outline: none;
             }
         }
     }

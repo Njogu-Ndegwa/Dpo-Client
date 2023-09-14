@@ -50,6 +50,16 @@
                                 <!-- <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' :
                                     'visibility'}}</mat-icon>
                             </mat-form-field> -->
+                            <!-- <div class="input-group-append">
+                                <button type="button" id="show-password" (click)="hide = !hide"> -->
+
+                                  <i (click)="hide = !hide"  class="fa fa-eye eye-icon" *ngIf="!hide"></i>
+                                  <i (click)="hide = !hide"  class="fa fa-eye-slash eye-icon" *ngIf="hide"></i>
+                                <div class="forgot-password">
+                                  <a href="javascript:void(0)" [routerLink]="'/forgot-password'">Forgot Password?</a>
+                                </div>
+                                <!-- </button>
+                              </div> -->
                             <button 
                             (click)="onSubmit()"
                             class="login-button"

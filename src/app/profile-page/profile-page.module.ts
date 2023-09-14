@@ -1,18 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { OnboardingComponent } from './onboarding.component';
-import { OnboardingRoutingModule } from './onboarding.component.routing';
-
+import { ProfilePageComponent } from './profile-page.component';
+import { ProfilePageRoutingModule } from './profile-page-routing.module';
 @NgModule({
   declarations: [
-    OnboardingComponent,
+    ProfilePageComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    OnboardingRoutingModule
+    ProfilePageRoutingModule
   ]
 })
-export class OnboardingModule { }
+export class ProfilePageModule { }

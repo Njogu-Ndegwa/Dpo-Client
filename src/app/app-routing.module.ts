@@ -102,7 +102,6 @@ const routes: Routes = [
       import('./pages/forgot-password/forgot-password.module').then(
         (m) => m.ForgotPasswordModule
       ),
-      canActivate: [AuthGuard]
   },
 ];
 

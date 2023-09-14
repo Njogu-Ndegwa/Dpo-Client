@@ -5,6 +5,7 @@ import { LoginComponent } from './login.component';
 import { LoginRoutingModule } from './login.component.routing';
 // import { SocialLoginModule } from '@abacritt/angularx-social-login';
 import { SocialLoginModule } from '@abacritt/angularx-social-login';
+import { RouterModule } from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -15,7 +16,9 @@ import { SocialLoginModule } from '@abacritt/angularx-social-login';
     FormsModule,
     ReactiveFormsModule,
     LoginRoutingModule,
-    SocialLoginModule
+    SocialLoginModule,
+    RouterModule
+    
     // SocialLoginModule 
   ]
 })

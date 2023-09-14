@@ -1,3 +1,65 @@
+<div class="header">
+    <div class="header-container">
+        <div class="logo">
+            <!-- <img src="../../../assets/infomoby-logo.png" alt="logo" class="image" /> -->
+        </div>
+        <div class="avatar">
+            <div class="dropdown">
+                <button (click)="toggleDropdown()">
+                    <i class="fa-solid fa-circle-user user-icon"></i>
+                </button>
+                <div class="dropdown-menu" *ngIf="showDropdown">
+                    <div class="header-menu">
+                        <div class="profile-image">
+                            <i class="fa-solid fa-user user-icon"></i>
+                        </div>
+                        <div>
+                            <p>Tracy baraza
+                                <br>
+                                <span>baraza@gmail.com</span>
+                            </p>
+
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="menu-header-content">
+                        <button>View Profile</button>
+                        <br>
+                        <button (click)="logOut()">Log Out</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Open Button
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+        </div> -->
+        <!-- <div ngbDropdown>
+            <button class="btn btn-secondary" id="dropdownMenuButton" ngbDropdownToggle>
+                Open Button
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <button class="dropdown-item">Action</button>
+                <button class="dropdown-item">Another action</button>
+                <button class="dropdown-item">Something else here</button>
+            </div>
+        </div> -->
+
+
+
+
+    </div>
+</div>
+
 <div class="main-div">
     <div style="margin-right: 2rem;" class="call-to-action">
         <div class="content-container">
@@ -6,13 +68,13 @@
 
                 <p *ngIf="isEdit === true">Welcome back to your site</p>
                 <div *ngIf="isEdit === false" class="button-style">
-                    <button (click)="createSitesNoCode()" [disabled]="isLoading"> 
+                    <button (click)="createSitesNoCode()" [disabled]="isLoading">
                         START HERE
                         <i *ngIf="isLoading" class="fas fa-spinner fa-spin"></i>
                     </button>
                 </div>
                 <div *ngIf="isEdit === true" class="button-style">
-                    <button (click)="editSite()" [disabled]="isLoading">
+                    <button (click)="editSite()" [disabled]="isLoading" style="margin-top: 1.8rem;">
                         EDIT SITE
                         <i *ngIf="isLoading" class="fas fa-spinner fa-spin"></i>
                     </button>

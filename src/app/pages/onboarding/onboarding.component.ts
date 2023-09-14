@@ -18,7 +18,7 @@ export class OnboardingComponent implements OnInit {
   siteName: any
   isLoading: boolean = false
   ssoType:any
-
+  showDropdown: boolean = false
   constructor(
     private router: Router,
     private testService: TestService,
@@ -27,6 +27,7 @@ export class OnboardingComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
     let ssoLink = localStorage.getItem('sso_link')
     this.accountName = localStorage.getItem('account_name')
     this.siteName = localStorage.getItem('site_name')
@@ -87,5 +88,13 @@ export class OnboardingComponent implements OnInit {
   hireProfessional() {
     this.router.navigate(['/hire-professional'])
   }
-  
+
+
+  toggleDropdown() {
+    this.showDropdown = !this.showDropdown
+  }
+  logOut() {
+    localStorage.clear()
+    this.router.navigate(['/login'])
+  }
 }

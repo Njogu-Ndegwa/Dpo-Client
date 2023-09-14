@@ -13,7 +13,7 @@ import {
 } from '@abacritt/angularx-social-login';
 import { environment } from 'src/environments/environment';
 import { ErrorIntercept } from './interceptors/interceptors';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 const googleLoginOptions: GoogleInitOptions = {
   oneTapEnabled: false,
 
@@ -27,7 +27,8 @@ const googleLoginOptions: GoogleInitOptions = {
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [
     {
