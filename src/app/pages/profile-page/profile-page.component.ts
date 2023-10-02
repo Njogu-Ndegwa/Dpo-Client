@@ -23,7 +23,8 @@ export class ProfilePageComponent implements OnInit {
   ngOnInit(): void {
   }
   onFileSelected(event:any) {
-
+    const selectedFile = event.target.files[0];
+    console.log(selectedFile, 'The Selected File')
   }
 
   saveProfile() {

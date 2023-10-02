@@ -47,10 +47,6 @@ export class FiveStepProcessComponent implements OnInit {
       phone: "05455546546",
       first_name: "Dennis Njogu"
     }
-    this.fiveStepProcessService.getTemplatesService().subscribe((res) => {
-      console.log(res, 'Templates')
-      this.items = res
-    })
   }
 
   switchTab(offset: number) {
