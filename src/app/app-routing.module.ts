@@ -68,15 +68,6 @@ const routes: Routes = [
 
   // Hire A Proffesinal
 
-  // {
-  //   path: 'hire-professional',
-  //   loadChildren: () =>
-  //     import('./pages/hire-a-proffesional/hire-a-proffesional.module').then(
-  //       (m) => m.HireAProffesionalModule
-  //     ),
-  //     canActivate: [AuthGuard]
-  // },
-
   {
     path: 'hire-professional',
     loadChildren: () =>
