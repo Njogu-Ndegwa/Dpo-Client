@@ -19,6 +19,8 @@ export class OnboardingComponent implements OnInit {
   isLoading: boolean = false
   ssoType:any
   showDropdown: boolean = false
+  email: any
+  fullName: any 
   constructor(
     private router: Router,
     private testService: TestService,
@@ -31,7 +33,8 @@ export class OnboardingComponent implements OnInit {
     let ssoLink = localStorage.getItem('sso_link')
     this.accountName = localStorage.getItem('account_name')
     this.siteName = localStorage.getItem('site_name')
-
+    this.email = localStorage.getItem('email')
+    this.fullName = localStorage.getItem('name')
     this.isLoading = true
     this.fiveStepProcessService.getSite(this.siteName).subscribe((res: any) => {
       console.log(res, '----')
@@ -68,7 +71,6 @@ export class OnboardingComponent implements OnInit {
 
   test() {
     this.testService.testService().subscribe((res) => {
-      console.log(res, "The Result-------22-----")
     })
   }
 
@@ -96,5 +98,9 @@ export class OnboardingComponent implements OnInit {
   logOut() {
     localStorage.clear()
     this.router.navigate(['/login'])
+  }
+
+  viewProfile() {
+    this.router.navigate(['/profile-page'])
   }
 }

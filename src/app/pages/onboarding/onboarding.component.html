@@ -1,7 +1,7 @@
 <div class="header">
     <div class="header-container">
         <div class="logo">
-            <!-- <img src="../../../assets/infomoby-logo.png" alt="logo" class="image" /> -->
+            <img src="../../../assets/infomoby-logo.png" alt="logo" class="image" />
         </div>
         <div class="avatar">
             <div class="dropdown">
@@ -11,19 +11,19 @@
                 <div class="dropdown-menu" *ngIf="showDropdown">
                     <div class="header-menu">
                         <div class="profile-image">
-                            <i class="fa-solid fa-user user-icon"></i>
+                            <i class="fa-solid fa-circle-user user-icon"></i>
                         </div>
                         <div>
-                            <p>Tracy baraza
+                            <p>{{fullName}}
                                 <br>
-                                <span>baraza@gmail.com</span>
+                                <span>{{email}}</span>
                             </p>
 
                         </div>
                     </div>
                     <hr>
                     <div class="menu-header-content">
-                        <button>View Profile</button>
+                        <button (click)="viewProfile()">View Profile</button>
                         <br>
                         <button (click)="logOut()">Log Out</button>
                     </div>
@@ -68,7 +68,7 @@
 
                 <p *ngIf="isEdit === true">Welcome back to your site</p>
                 <div *ngIf="isEdit === false" class="button-style">
-                    <button (click)="createSitesNoCode()" [disabled]="isLoading">
+                    <button (click)="createSitesNoCode()">
                         START HERE
                         <i *ngIf="isLoading" class="fas fa-spinner fa-spin"></i>
                     </button>

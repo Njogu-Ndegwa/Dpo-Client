@@ -103,6 +103,35 @@ const routes: Routes = [
         (m) => m.ForgotPasswordModule
       ),
   },
+
+  {
+    path: 'profile-page',
+    loadChildren: () =>
+      import('./pages/profile-page/profile-page.module').then(
+        (m) => m.ProfilePageModule
+      ),
+  },
+  {
+    path: 'confirm-verification-code',
+    loadChildren: () =>
+      import('./pages/confirm-verificaton-code/confirm-verification-code.module').then(
+        (m) => m.ConfirmVerificationCodeModule
+      ),
+  },
+  {
+    path: 'enter-new-password',
+    loadChildren: () =>
+      import('./pages/enter-new-password/enter-new-password.module').then(
+        (m) => m.EnterNewPasswordModule
+      ),
+  },
+  {
+    path: 'onboarding-email-sent',
+    loadChildren: () =>
+      import('./pages/onboarding-email_sent/onboarding-page.module').then(
+        (m) => m.OnboardingEmailSentModule
+      ),
+  },
 ];
 
 @NgModule({

@@ -47,12 +47,6 @@
                             <!-- <mat-form-field style="padding-top: 2rem;" class="example-full-width"> -->
                                 <!-- <label>Password</label> -->
                                 <input class="auth-input password" placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="passwordControl" [(ngModel)]="password" required>
-                                <!-- <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' :
-                                    'visibility'}}</mat-icon>
-                            </mat-form-field> -->
-                            <!-- <div class="input-group-append">
-                                <button type="button" id="show-password" (click)="hide = !hide"> -->
-
                                   <i (click)="hide = !hide"  class="fa fa-eye eye-icon" *ngIf="!hide"></i>
                                   <i (click)="hide = !hide"  class="fa fa-eye-slash eye-icon" *ngIf="hide"></i>
                                 <div class="forgot-password">

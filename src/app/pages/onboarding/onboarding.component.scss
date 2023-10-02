@@ -8,10 +8,9 @@
         justify-content: space-between;
         align-items: center;
         .logo{
-            .image {
-                height: 150px;
-                width: 250px;
-            }
+
+            
+
 
         }
 
@@ -50,17 +49,16 @@
                 justify-content: space-between;
                 height: 40px;
                 .profile-image{
-                    height: 30px;
-                    width: 30px;
                     border-radius: 50%;
                     margin-top: 0.4rem;
                     margin-left: 1rem;
+                    margin-right: 0.5rem;
                     .user-icon{
-                        font-size: 26px;
+                        font-size: 32px;
                     }
                 }
                 p{
-                    padding-right: 0.5rem;
+                    padding-right: 3.5rem;
                     color: var(--gray-700, #344054);
                     font-family: Inter;
                     font-size: 14px;

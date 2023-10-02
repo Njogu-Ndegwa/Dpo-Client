@@ -66,6 +66,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('site_name', value['site_name'])
           localStorage.setItem('account_name', value['account_name'])
           localStorage.setItem('template_id', value['template_id'])
+          localStorage.setItem('name',value['full_name'])
         });
       },
       complete: () => {

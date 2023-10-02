@@ -4,14 +4,14 @@
         <p class="header">         <img style="height: 16px; width: 16px; margin-right: 0.3rem;" src="../../../assets//infomoby-favicon.png" />Infomoby Business</p>
         <div class="card">
             
-            <p class="forgot-password">Forgot your password?</p>
+            <p class="forgot-password">Enter your verification code</p>
 
             <div class="input-container">
-                <label>Email address <span>*</span></label>
-                <input [(ngModel)]="email" class="custom-input" type="text"/> 
+                <label>Verification Code<span>*</span></label>
+                <input [(ngModel)]="verificationCode" class="custom-input" type="text"/> 
             </div>
             <div class="input-container">
-                <button class="button-1" (click)="resetPassword()">Send Verification Code<span style="margin-left: 1rem; font-size: 16px;" *ngIf="isLoading"> <i class="fas fa-spinner fa-spin"></i></span></button>
+                <button class="button-1" (click)="resetPassword()">Reset My Password <span style="margin-left: 1rem; font-size: 16px;" *ngIf="isLoading"> <i class="fas fa-spinner fa-spin"></i></span></button>
             </div>
             <div class="input-container">
                 <button class="button-2" (click)="login()">Login</button>
