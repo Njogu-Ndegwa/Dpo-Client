@@ -15,18 +15,31 @@ export class ProfileService {
       firstName:string,
       secondName:string, 
       emailAddress:string, 
-      photo:string, 
+      photo:any, 
       businessName:string, 
       businessEmail:string, 
-      phoneNumber:string) {
-      return this.http.post(`${environment}user-profile`, {
+      phoneNumber:string,
+      userId:string,
+      businessPhoneNumber:string
+      
+      ) {
+        console.log(photo, '------25-----')
+      return this.http.post(`${environment.api}user-profile`, {
         first_name: firstName,
-        second_name: secondName,
+        last_name: secondName,
         email_address: emailAddress,
         photo: photo,
         business_name: businessName,
         business_email: businessEmail,
-        business_phone_number: phoneNumber
+        business_phone_number: phoneNumber,
+        user_id: userId,
+        phone_number: businessPhoneNumber
+      })
+    }
+
+    getProfilePage(userId:any) {
+      return this.http.post(`${environment.api}get-profile`, {
+        user_id: userId
       })
     }
 }
