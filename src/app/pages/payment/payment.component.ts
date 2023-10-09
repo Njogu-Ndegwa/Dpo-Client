@@ -99,7 +99,7 @@ createIframe(transToken: any) {
   this.iframe.src = `https://secure.3gdirectpay.com/payv3.php?ID=${transToken}&ts=${randomParam}`;
   
   this.iframe.width = "800";
-  this.iframe.height = "420";
+  this.iframe.height = "600";
   this.iframe.style.visibility = "hidden";
   
   // Append the iframe to the document body
