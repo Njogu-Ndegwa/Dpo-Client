@@ -30,6 +30,7 @@ export class ProfilePageComponent implements OnInit {
     }
     Loading.pulse('Loading...')
     this.profileService.getProfilePage(userId).subscribe((res:any) => {
+      console.log(res)
       Loading.remove()
       res = res[0]
       this.businessEmail = res['business_email']
@@ -41,6 +42,7 @@ export class ProfilePageComponent implements OnInit {
       this.businessPhoneNumber= res['business_phone_number']
       this.emailAddress = res['email']
       this.phoneNumber = res['phone_number']
+      this.photo = res['photo_url']
     })
   }
   onFileSelected(event:any) {

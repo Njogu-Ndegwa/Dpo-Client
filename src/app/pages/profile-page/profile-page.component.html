@@ -55,7 +55,9 @@
             </div>
             <div class="input-row">
                 <div class="image">
-                    <i class="fa-solid fa-circle-user user-icon"></i>
+                    <i *ngIf="!photo" class="fa-solid fa-circle-user user-icon"></i>
+                    
+                    <img *ngIf="photo" class="image" src={{photo}} />
                 </div>
                 <div class="file-input-wrapper">
                     <span class="cloud-icon">
