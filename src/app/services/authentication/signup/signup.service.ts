@@ -19,4 +19,11 @@ export class SignupService {
       full_name: fullname
     })
   }
+
+  sendResetPasswordEmailService(name:string, email:string) {
+    return this.httpClient.post(`${environment.api}resend-verification-email`, {
+      name: name,
+      email: email
+    })
+  }
 }

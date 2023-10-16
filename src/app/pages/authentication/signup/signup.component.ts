@@ -56,6 +56,10 @@ export class SignUpComponent implements OnInit {
     this.signupService.signupService(email, password, fullname).subscribe((res) => {
       this.loading = false
       this.myForm.reset()
+      this.router.navigate(['/verification-email-sent', {
+        name: fullname,
+        email: email
+      }])
       Notify.success('A verification email has been sent to your email. Please verify your email')
     },
       () => {

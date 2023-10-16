@@ -20,6 +20,14 @@ const routes: Routes = [
       ),
   },
 
+  {
+    path: 'verification-email-sent',
+    loadChildren: () =>
+      import('./pages/authentication/email-sent/email-sent.module').then(
+        (m) => m.EmailSentModule
+      ),
+  },
+
   // Payment Systems
   {
     path: 'payment',
@@ -81,8 +89,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/publish/publish.module').then(
         (m) => m.PublishModule
-      ),
-      canActivate: [AuthGuard]
+      )
   },
 
 
