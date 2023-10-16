@@ -4,6 +4,7 @@ import { TestService } from 'src/app/services/test.service';
 import { ActivatedRoute } from '@angular/router';
 import { FiveStepProcessService } from 'src/app/services/five-step-process/five-step-process.service';
 import { VerifyPaymentComponent } from '../payment/verify-payment/verify-payment.component';
+import { ProfileService } from 'src/app/services/profile/profile.service';
 @Component({
   selector: 'app-onboarding',
   templateUrl: './onboarding.component.html',
@@ -20,16 +21,21 @@ export class OnboardingComponent implements OnInit {
   ssoType:any
   showDropdown: boolean = false
   email: any
-  fullName: any 
+  fullName: any
+  photoUrl:any = ''
   constructor(
     private router: Router,
     private testService: TestService,
     private route: ActivatedRoute,
     private fiveStepProcessService: FiveStepProcessService,
+    private profileService: ProfileService
   ) { }
 
   ngOnInit(): void {
-
+    let userId = localStorage.getItem('id')
+    if (userId) {
+      this.userId = userId
+    }
     let ssoLink = localStorage.getItem('sso_link')
     this.accountName = localStorage.getItem('account_name')
     this.siteName = localStorage.getItem('site_name')
@@ -54,7 +60,10 @@ export class OnboardingComponent implements OnInit {
         }
       }
     })
-
+    this.profileService.getProfilePage(this.userId).subscribe((res:any) => {
+      console.log(res, '-61-')
+      this.photoUrl = res[0]['photo_url']
+    })
     if (this.verifyPaymentComponent) {
       this.verifyPaymentComponent.callFunctionInA.subscribe(() => {
         this.doSomethingInComponentA();

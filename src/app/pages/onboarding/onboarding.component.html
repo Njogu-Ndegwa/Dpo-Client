@@ -6,12 +6,16 @@
         <div class="avatar">
             <div class="dropdown">
                 <button (click)="toggleDropdown()">
-                    <i class="fa-solid fa-circle-user user-icon"></i>
+                    <i *ngIf="!photoUrl" class="fa-solid fa-circle-user user-icon"></i>
+                    <img *ngIf="photoUrl" class="avatar" src={{photoUrl}} />
                 </button>
                 <div class="dropdown-menu" *ngIf="showDropdown">
                     <div class="header-menu">
                         <div class="profile-image">
-                            <i class="fa-solid fa-circle-user user-icon"></i>
+
+                            <i *ngIf="!photoUrl" class="fa-solid fa-circle-user user-icon"></i>
+                                <img *ngIf="photoUrl" class="user-icon-image"
+                                    src={{photoUrl}} />
                         </div>
                         <div>
                             <p>{{fullName}}
