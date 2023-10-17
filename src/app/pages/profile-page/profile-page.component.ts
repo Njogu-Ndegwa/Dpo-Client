@@ -18,6 +18,8 @@ export class ProfilePageComponent implements OnInit {
   photo!:any
   userId!:string
   businessPhoneNumber!:string
+  isPhotoLoaded:boolean = false
+  photoUrl!:any
   constructor(
     private profileService: ProfileService,
     private router: Router
@@ -42,10 +44,11 @@ export class ProfilePageComponent implements OnInit {
       this.businessPhoneNumber= res['business_phone_number']
       this.emailAddress = res['email']
       this.phoneNumber = res['phone_number']
-      this.photo = res['photo_url']
+      this.photoUrl = res['photo_url']
     })
   }
   onFileSelected(event:any) {
+    this.isPhotoLoaded = true
     const selectedFile = event.target.files[0];
     this.readFileAsBase64(selectedFile, (base64Data, error) => {
       if (error) {

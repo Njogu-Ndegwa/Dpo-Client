@@ -55,9 +55,9 @@
             </div>
             <div class="input-row">
                 <div class="image">
-                    <i *ngIf="!photo" class="fa-solid fa-circle-user user-icon"></i>
+                    <i *ngIf="!photoUrl" class="fa-solid fa-circle-user user-icon"></i>
                     
-                    <img *ngIf="photo" class="image" src={{photo}} />
+                    <img *ngIf="photoUrl" class="image" src={{photoUrl}} />
                 </div>
                 <div class="file-input-wrapper">
                     <span class="cloud-icon">
@@ -73,13 +73,14 @@
                           </svg>
                     </span>
                     <div style="width: 80%; margin-left: 2.8rem;">
-                        <p><label for="file-upload" style="color: #04A9F4; cursor: pointer;" class="custom-file-upload">
+                        <p *ngIf="!isPhotoLoaded"><label for="file-upload" style="color: #04A9F4; cursor: pointer;" class="custom-file-upload">
                                 Click to upload
                             </label>
                             or drag and drop SVG, PNG, JPG or GIF (max. 800x400px)
                             <input id="file-upload" type="file" class="file" (change)="onFileSelected($event)"
                                 style="display: none;" />
                         </p>
+                        <p *ngIf="isPhotoLoaded">Photo Uploaded Successfuly</p>
                     </div>
                 </div>
             </div>
