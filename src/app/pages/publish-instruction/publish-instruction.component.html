@@ -1,0 +1,37 @@
+<div class="main-container">
+    <div class="header-section">
+
+    </div>
+
+    <h1>Instructions on how to connect your domain.</h1>
+
+    <ol class="custom-list">
+        <li class="main-list">Log in to your domain host, go to the domain management
+            area and find the DNS editing options.Create a new CNAME
+            record with the following settings:
+            <ul class="custom-list">
+                <li>Host/​Alias: www</li>
+                <li>Destination/​Target: s.eu-multiscreensite.com</li>
+            </ul>
+        </li>
+        <li class="main-list">
+            Point the root of your domain (domain.com) to your website.
+            To do this, create two A records with the following settings:
+            <ul class="custom-list">
+                <li class="bold-list">First</li>
+                <li>Host/​Alias: @</li>
+                <li>Destination/​Target: 18.197.248.23</li>
+                <li class="bold-list">Second</li>
+                <li>Host/​Alias: @</li>
+                <li>52.5.120.70</li>
+            </ul>
+        </li>
+    </ol>
+    <p class="need-help">Need help in connecting your domain?</p>
+    <div class="input-div">
+        <input type="text" [(ngModel)]="email" placeholder="Enter your email" />
+        <button (click)="sendEmail()" class="send-button">SEND<i style="margin-left: 1rem;" class="fa fa-arrow-right"aria-hidden="true"></i>
+            <i *ngIf="isLoading" style="display: inline-block; margin-left: 1rem;" class="fas fa-spinner fa-spin"></i>
+        </button>
+    </div>
+</div>

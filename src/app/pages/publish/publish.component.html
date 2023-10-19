@@ -1,5 +1,5 @@
 <div class="main-container">
-    <div class="input-container">
+    <!-- <div class="input-container">
  
         <form class="form" [formGroup]="myForm">
             <h3 style="margin-top: 5rem;">Enter Your Sites Domain</h3>
@@ -11,12 +11,26 @@
                 <button (click)="publishSite()">Submit</button>
             </div>
         </form>
+    </div> -->
+    <div class="header-section">
+
     </div>
-
-    <div class="description-container">
-        <div class="main-content">
-
+    <div class="content-section">
+        <div class="outer-body">
+            <p>Set up custom domain</p>
+            <div class="inner-body">
+                <p>Enter your domain name</p>
+                <form class="form" [formGroup]="myForm">
+                    <div class="input-div">
+                        <label>eg: https://www.diy.infomoby.com</label>
+                        <input class="domain-input" placeholder="Enter Domain" formControlName="domain" type="text"/>
+                    </div>
+                </form>
+            </div>
+            <div class="input-buttons">
+                <!-- <button class="cancel">CANCEL</button> -->
+                <button (click)="publishSite()" class="next">NEXT<i style="margin-left: 1rem;" class="fa fa-arrow-right" aria-hidden="true"></i></button>
+            </div>
         </div>
-
     </div>
 </div>

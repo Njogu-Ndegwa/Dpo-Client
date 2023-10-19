@@ -92,7 +92,13 @@ const routes: Routes = [
       )
   },
 
-
+  {
+    path: 'publish-instruction',
+    loadChildren: () =>
+      import('./pages/publish-instruction/publish.module').then(
+        (m) => m.PublishInstructionModule
+      )
+  },
 
   {
     path: 'forgot-password',

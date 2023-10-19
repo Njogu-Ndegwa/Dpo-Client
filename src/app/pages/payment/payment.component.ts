@@ -50,10 +50,10 @@ export class PaymentComponent implements OnInit {
   publishSite(){
     // @ts-ignore
     window.publishOverlayAPI.publishDone()
-    setTimeout(() => {
-    // @ts-ignore
-    window.publishOverlayAPI.closeOverlay()
-    }, 100)
+    // setTimeout(() => {
+    // // @ts-ignore
+    // window.publishOverlayAPI.closeOverlay()
+    // }, 100)
   }
 
   ngOnDestroy() {

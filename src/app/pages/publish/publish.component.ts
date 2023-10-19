@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Loading, Notify } from 'notiflix';
 import { FiveStepProcessService } from 'src/app/services/five-step-process/five-step-process.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-publish',
   templateUrl: './publish.component.html',
@@ -13,7 +13,8 @@ export class PublishComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private fiveStepProcess: FiveStepProcessService
+    private fiveStepProcess: FiveStepProcessService,
+    private router: Router
     ) { 
     this.myForm = this.formBuilder.group({
       domain: ''
@@ -29,7 +30,7 @@ export class PublishComponent implements OnInit {
   publishSite() {
     Loading.pulse('Loading...')
     let domain: any = this.myForm.get('domain')!.value;
-    this.fiveStepProcess.publishSite(this.siteName, domain).subscribe((res:any)=> {
+    this.fiveStepProcess.publishSite(this.siteName, domain).subscribe((res:any)=> { 
       console.log(res, 'The Result of the Page----33----')
       if(res['message'] === 'success'){
         Notify.success('Site Published Succesfully')
@@ -39,6 +40,7 @@ export class PublishComponent implements OnInit {
           const parentWindow = window.parent;
           if (parentWindow) {
             parentWindow.postMessage('publishSite', 'https://diy.infomoby.com');
+            this.router.navigate(['/publish-instruction'])
           }
         },1500)
       }else if(res['message'] === 'error'){

@@ -55,4 +55,10 @@ export class FiveStepProcessService {
       domain: domain
     })
   }
+
+  sendEmailForHelp(email:string) {
+    return this.httpClient.post(`${environment.api}help-connect-domain`, {
+      email:email
+    })
+  }
 }
