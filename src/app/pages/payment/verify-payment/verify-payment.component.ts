@@ -41,13 +41,13 @@ export class VerifyPaymentComponent implements OnInit {
       console.log(res, 'The Result')
       if (res['status'] === 'paid') {
         Notify.success('Payment Successful')
-        if (res['amount'] === '1.00') {
+        if (res['amount'] === '5500.00') {
           setTimeout(() => {
             console.log('----46')
             this.isLoading = false
             this.router.navigate(['/publish-site'])
           }, 1000)
-        } else if (res['amount'] === '7750.00') {
+        } else if (res['amount'] === '1.00') {
           setTimeout(() => {
             this.isLoading = false
             this.initiateConnectDomain()
