@@ -21,9 +21,14 @@ export class PublishInstructionComponent implements OnInit {
     this.fiveStepProcessService.sendEmailForHelp(this.email).subscribe((res:any) => {
       this.isLoading = false
       this.email =''
-      console.log(res, 'The Res---24---')
       if(res['message'] === 'success') {
         Notify.success('Email Sent Successfully')
+        setTimeout(() => {
+          const parentWindow = window.parent;
+          if (parentWindow) {
+            parentWindow.postMessage('publishSite', 'https://diy.infomoby.com');
+          }
+        },1000)
       } else {
         Notify.failure('There was a problem sending the email, please try again')
       }

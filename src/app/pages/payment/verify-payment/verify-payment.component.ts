@@ -43,7 +43,6 @@ export class VerifyPaymentComponent implements OnInit {
         Notify.success('Payment Successful')
         if (res['amount'] === '1.00') {
           setTimeout(() => {
-            console.log('----46')
             this.isLoading = false
             this.router.navigate(['/publish-site'])
           }, 1000)
