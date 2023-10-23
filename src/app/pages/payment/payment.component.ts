@@ -33,6 +33,7 @@ export class PaymentComponent implements OnInit {
     window.addEventListener('message', this.receiveMessage.bind(this), false);
     this.activatedRoute.queryParams.subscribe((params) => {
       console.log('Params', params['sitename'])
+      localStorage.setItem('site_name', params['sitename'])
     })
   }
 
