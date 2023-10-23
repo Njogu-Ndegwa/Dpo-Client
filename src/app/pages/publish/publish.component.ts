@@ -30,9 +30,14 @@ export class PublishComponent implements OnInit {
     // this.activatedRoute.paramMap.subscribe((res) => {
     //   console.log(res, 'Param Map Result....')
     // })
-    this.activatedRoute.params.subscribe((res) => {
-      console.log(res, 'Params Result...34')
-    })
+    // this.activatedRoute.params.subscribe((res) => {
+    //   console.log(res, 'Params Result...34')
+    // })
+    const queryParams = this.activatedRoute.snapshot.queryParams;
+
+    const sitenameR = queryParams['sitename'];
+
+    console.log(sitenameR, 'The SiteName')
   }
 
   publishSite() {
