@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { Loading, Notify } from 'notiflix';
 import { FiveStepProcessService } from 'src/app/services/five-step-process/five-step-process.service';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-publish',
   templateUrl: './publish.component.html',
@@ -14,7 +15,8 @@ export class PublishComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private fiveStepProcess: FiveStepProcessService,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
     ) { 
     this.myForm = this.formBuilder.group({
       domain: ''
@@ -25,6 +27,9 @@ export class PublishComponent implements OnInit {
   siteName: string = ''
   ngOnInit(): void {
     this.siteName = localStorage.getItem('site_name')!
+    this.activatedRoute.paramMap.subscribe((res) => {
+      console.log(res, 'Param Map Result....')
+    })
   }
 
   publishSite() {
