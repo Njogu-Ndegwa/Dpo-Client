@@ -52,10 +52,10 @@ export class PublishComponent implements OnInit {
         setTimeout(() => {
           const parentWindow = window.parent;
           if (parentWindow) {
-            parentWindow.postMessage('publishSite', 'https://diy.infomoby.com');
+            // parentWindow.postMessage('publishSite', 'https://diy.infomoby.com');
             this.router.navigate(['/publish-instruction'])
           }
-        },1500)
+        },1000)
       }else if(res['message'] === 'error'){
         Notify.failure('There was an error publishing your site. Please try again')
         Loading.remove()
