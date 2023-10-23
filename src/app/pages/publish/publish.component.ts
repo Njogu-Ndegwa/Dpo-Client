@@ -27,8 +27,11 @@ export class PublishComponent implements OnInit {
   siteName: string = ''
   ngOnInit(): void {
     this.siteName = localStorage.getItem('site_name')!
-    this.activatedRoute.paramMap.subscribe((res) => {
-      console.log(res, 'Param Map Result....')
+    // this.activatedRoute.paramMap.subscribe((res) => {
+    //   console.log(res, 'Param Map Result....')
+    // })
+    this.activatedRoute.params.subscribe((res) => {
+      console.log(res, 'Params Result...34')
     })
   }
 
