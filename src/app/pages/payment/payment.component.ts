@@ -34,6 +34,7 @@ export class PaymentComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe((params) => {
       console.log('Params', params['sitename'])
       localStorage.setItem('site_name', params['sitename'])
+      localStorage.setItem('email', params['accountname'])
     })
   }
 

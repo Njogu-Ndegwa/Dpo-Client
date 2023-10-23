@@ -15,6 +15,7 @@ export class VerifyPaymentComponent implements OnInit {
   @Output() callFunctionInA = new EventEmitter<void>();
   transactionToken: any
   isLoading: boolean = false
+  email:any
   constructor(
     private activatedRoute: ActivatedRoute,
     private paymentService: PaymentsService,
@@ -24,6 +25,7 @@ export class VerifyPaymentComponent implements OnInit {
   ) {
     this.activatedRoute.queryParams.subscribe((param) => {
       this.transactionToken = param['TransactionToken']
+      this.email = param['email']
     })
   }
 
@@ -37,7 +39,7 @@ export class VerifyPaymentComponent implements OnInit {
     window.scrollTo(0, 0);
     console.log(this.transactionToken, 'The Transaction Token')
     this.isLoading = true
-    this.paymentService.verifyPaymentService(this.transactionToken).subscribe((res: any) => {
+    this.paymentService.verifyPaymentService(this.transactionToken, this.email).subscribe((res: any) => {
       console.log(res, 'The Result')
       if (res['status'] === 'paid') {
         Notify.success('Payment Successful')

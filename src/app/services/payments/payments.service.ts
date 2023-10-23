@@ -29,9 +29,10 @@ export class PaymentsService {
 
 
 
-  verifyPaymentService(transactionToken:any) {
+  verifyPaymentService(transactionToken:any, email:any) {
     return this.httpClient.post(`${environment.api}verify-payment`, {
-      transaction_token: transactionToken
+      transaction_token: transactionToken,
+      email: email
     })
   }
 }
