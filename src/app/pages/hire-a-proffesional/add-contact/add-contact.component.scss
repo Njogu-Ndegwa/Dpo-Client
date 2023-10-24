@@ -7,6 +7,7 @@
         width: 90%;
         min-height: 60vh;
         margin-top: 4rem;
+
         h1 {
             color: var(--ui-black, #333);
             font-family: Outfit;
@@ -32,12 +33,13 @@
             display: flex;
             flex-direction: column;
             margin-bottom: 2rem;
+
             input {
                 border: 1.2px solid var(--ui-blue, #04A9F4);
                 height: 36px;
                 border-radius: 5px;
                 text-indent: 1rem;
-                
+
             }
 
             .input-field:focus {
@@ -70,6 +72,7 @@
             font-weight: 400;
             line-height: normal;
             padding-bottom: 0.5rem;
+
             .asterik {
                 color: red;
             }
@@ -112,7 +115,7 @@
             .back-button {
                 background-color: white;
                 border: 1px solid #04A9F4;
-                color: #04A9F4 ;
+                color: #04A9F4;
             }
 
             .next-button {
@@ -124,7 +127,8 @@
 
 
         .choose-section {
-            border: 1px solid #D6D6D6;;
+            border: 1px solid #D6D6D6;
+            ;
             margin-bottom: 3rem;
             display: flex;
             justify-content: space-between;
@@ -132,18 +136,22 @@
             align-items: center;
             border-radius: 5px;
             cursor: pointer;
+
             .radio-container {
                 display: flex;
                 margin-top: 1.5rem;
                 // align-items: center;
             }
+
             .radio-container input[type="radio"] {
-                margin-right: 10px; /* Add some spacing between radio button and content */
+                margin-right: 10px;
+                /* Add some spacing between radio button and content */
                 margin-left: 2rem;
                 width: 18px;
                 height: 18px;
                 margin-top: 0.4rem;
             }
+
             h3 {
                 color: var(--ui-black, #333);
                 font-family: Outfit;
@@ -151,9 +159,10 @@
                 font-style: normal;
                 font-weight: 500;
                 line-height: 28px;
-            
+
             }
-            p{
+
+            p {
                 color: var(--ui-grey, #757575);
                 font-family: Outfit;
                 font-size: 16px;
@@ -166,7 +175,7 @@
 
 
         .other-questions {
-            
+
             h3 {
                 color: var(--ui-black, #333);
                 font-family: Outfit;
@@ -194,6 +203,7 @@
                 margin-bottom: 2rem;
                 text-indent: 1rem;
             }
+
             .custom-textarea:focus {
                 border: 1px solid #D6D6D6;
                 outline: none;
@@ -278,60 +288,316 @@
 }
 
 .thank-you-page {
-   height: 92%; 
+    height: 92%;
     display: flex;
     justify-content: center;
     align-items: center;
-   .yes-icon{
-    height: 150px;
-    width: 100%;
 
-    display: flex;
-    justify-content: center;
-    .svg-tick {
-        margin-bottom: 5rem;
-    }
-   }
-   .thank-you-content {
-    height: 60%;
-    width: 30vw;
-    .submit-button {
+    .yes-icon {
+        height: 150px;
+        width: 100%;
 
         display: flex;
         justify-content: center;
 
-        button {
-height: 40px;
-border-radius: 4px;
-background: #04A9F4;
-box-shadow: 0px 3px 6px 0px #C4C4C4;
-color: white;
-border: none;
-
+        .svg-tick {
+            margin-bottom: 5rem;
         }
     }
 
-    p{
-        text-align: center;
+    .thank-you-content {
+        height: 60%;
+        width: 30vw;
+
+        .submit-button {
+
+            display: flex;
+            justify-content: center;
+
+            button {
+                height: 40px;
+                border-radius: 4px;
+                background: #04A9F4;
+                box-shadow: 0px 3px 6px 0px #C4C4C4;
+                color: white;
+                border: none;
+
+            }
+        }
+
+        p {
+            text-align: center;
+        }
+
+        .sub-message {
+            color: var(--UI-grey, #757575);
+            text-align: center;
+            font-family: Outfit;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+        }
+
+        .message {
+            margin-top: 2rem;
+            color: var(--UI-black, #333);
+            text-align: center;
+            font-family: Outfit;
+            font-size: 22px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+        }
     }
-    .sub-message{
-        color: var(--UI-grey, #757575);
-        text-align: center;
-        font-family: Outfit;
-        font-size: 18px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: normal;
+}
+
+@media (max-width: 764px) {
+    .thank-you-content {
+        .submit-button {
+            button {
+                font-size: 14px !important;
+            }
+        }
     }
-    .message{
-        margin-top: 2rem;
-        color: var(--UI-black, #333);
-        text-align: center;
-        font-family: Outfit;
-        font-size: 22px;
-        font-style: normal;
-        font-weight: 600;
-        line-height: normal;
+    .sub-message {
+
+        font-size: 14px !important;
+
     }
-   }
+
+    .message {
+
+        font-size: 18px !important;
+
+    }
+
+    .other-questions {
+        h3 {
+            font-size: 18px !important;
+        }
+
+        li {
+            font-size: 14px !important;
+        }
+
+        textarea::placeholder {
+            font-size: 14px !important;
+        }
+
+    }
+
+    h1 {
+        font-size: 30px !important;
+    }
+
+    .terms-of-service {
+        font-size: 12px !important;
+    }
+
+    label {
+        font-size: 14px !important;
+    }
+
+    .top-row {
+        display: flex;
+        flex-direction: column;
+
+        .input-container {
+            width: 100% !important;
+        }
+    }
+
+    .phone-number {
+        width: 100% !important;
+    }
+
+    .how-it-works {
+        display: none;
+    }
+}
+
+@media (max-width: 640px) {
+
+    .choose-section {
+        h3 {
+            font-size: 16px !important;
+        }
+
+        p {
+            font-size: 14px !important;
+        }
+    }
+}
+
+@media (max-width: 583px) {
+
+
+    h1 {
+        font-size: 28px !important;
+    }
+
+    .terms-of-service {
+        font-size: 11px !important;
+    }
+
+    label {
+        font-size: 13px !important;
+    }
+
+    .choose-section {
+        h3 {
+            font-size: 15px !important;
+        }
+
+        p {
+            font-size: 13px !important;
+        }
+    }
+}
+
+@media (max-width: 540px) {
+
+
+    .choose-section {
+        h3 {
+            font-size: 14px !important;
+        }
+
+        p {
+            font-size: 12px !important;
+        }
+    }
+}
+
+
+
+@media (max-width: 500px) {
+    .choose-section {
+        h3 {
+            font-size: 13px !important;
+        }
+
+        p {
+            font-size: 11px !important;
+        }
+    }
+}
+
+@media (max-width: 473px) {
+    .other-questions {
+        h3 {
+            font-size: 17px !important;
+        }
+
+        li {
+            font-size: 13px !important;
+        }
+
+        textarea::placeholder {
+            font-size: 13px !important;
+        }
+
+    }
+
+    .choose-section {
+        h3 {
+            font-size: 12px !important;
+        }
+
+        p {
+            font-size: 10px !important;
+        }
+
+
+        .radio-container input[type="radio"] {
+            height: 15px !important;
+            width: 15px !important;
+            margin-left: 1rem !important;
+        }
+    }
+
+}
+
+@media (max-width: 415px) {
+    .choose-section {
+        h3 {
+            font-size: 11px !important;
+        }
+
+        p {
+            font-size: 9px !important;
+        }
+
+
+    }
+
+}
+
+
+@media (max-width: 390px) {
+    .thank-you-content {
+        .submit-button {
+            button {
+                font-size: 11px !important;
+            }
+        }
+    }
+
+    .sub-message {
+
+        font-size: 12px !important;
+
+    }
+
+    .message {
+
+        font-size: 16px !important;
+
+    }
+
+    .other-questions {
+        h3 {
+            font-size: 16px !important;
+        }
+
+        li {
+            font-size: 12px !important;
+        }
+
+        textarea::placeholder {
+            font-size: 12px !important;
+        }
+
+    }
+
+    h1 {
+        font-size: 26px !important;
+    }
+
+    .terms-of-service {
+        font-size: 10px !important;
+    }
+
+    label {
+        font-size: 12px !important;
+    }
+
+    .choose-section {
+        h3 {
+            font-size: 11px !important;
+        }
+
+        p {
+            font-size: 9px !important;
+        }
+
+        .radio-container input[type="radio"] {
+            height: 13px !important;
+            width: 13px !important;
+            margin-left: 0.5rem !important;
+            margin-top: 0.6rem !important;
+        }
+    }
+
 }
