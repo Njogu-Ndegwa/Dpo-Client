@@ -6,7 +6,10 @@
     justify-content: space-between;
     margin: 0;
     padding: 0;
-
+    width: 100vw; 
+    background: #04A9F4; 
+    margin: 0; 
+    padding: 0;
     .left-side {
         margin-left: 1rem;
         .heading-paragraph {
@@ -173,3 +176,77 @@
     }
 }
 
+
+
+
+  @media (max-width: 1200px) {
+    .eye-icon {
+        position: absolute;
+        top: 24rem;
+        // left: 17rem;
+    }
+  }
+
+
+  @media (max-width: 950px) {
+    .eye-icon {
+        position: absolute;
+        top: 24rem;
+        right: 100px !important;
+    }
+  }
+  @media (max-width: 800px) {
+    .eye-icon {
+        position: absolute;
+        top: 24rem;
+        right: 80px !important;
+    }
+  }
+  @media (max-width: 568px) {
+    .middle-section {
+        display: none;
+    }
+    .left-side {
+      display: none;
+    }
+
+    .row {
+        background: white;
+    }
+    .right-side {
+        width: 100%;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-radius: 0;
+        
+    }
+    .eye-icon {
+        position: absolute;
+        top: 18.5rem !important;
+        left: 25rem;
+    }
+  }
+  @media (max-width: 510px) {
+    .eye-icon {
+        position: absolute;
+        left: 24rem;
+    }
+  }
+  @media (max-width: 490px) {
+    .eye-icon {
+        position: absolute;
+        left: 21rem;
+    }
+  }
+  @media (max-width: 450px) {
+    .eye-icon {
+        position: absolute;
+        left: 19rem;
+    }
+  }
+  @media (max-width: 400px) {
+    .eye-icon {
+        position: absolute;
+        left: 17rem;
+    }
+  }

@@ -185,4 +185,54 @@
 
     }
 }
+@media (max-width: 1250px) {
+    .main-div {
+    .call-to-action {
+        height: 55%;
+        height: 300px;
+    }
+}
+}
+
+@media (max-width: 980px) {
+    .main-div {
+    .call-to-action {
+        width: 40%;
+        height: 300px;
+    }
+}
+}
+@media (max-width: 730px) {
+    .main-div {
+    .call-to-action {
+        width: 45%;
+        height: 300px;
+    }
+}
+}
+@media (max-width: 640px) {
+    .main-div {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        .call-to-action {
+            width: 65%;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+            height: 300px;
+            .content{
+                p{
+                    font-size: 18px !important;
+                }
+            }
+
+            button {
+                font-size: 10px !important;
+            }
+        }
+        .right {
+            margin-left: -2rem;
+        }
+    }
+}
 

@@ -6,7 +6,10 @@
     justify-content: space-between;
     margin: 0;
     padding: 0;
-
+    width: 100vw; 
+    background: #04A9F4; 
+    margin: 0; 
+    padding: 0;
     .left-side {
         margin-left: 1rem;
         .heading {
@@ -188,6 +191,57 @@
                 letter-spacing: 1.6px;
             }
           }
+    }
+}
+@media (max-width: 1200px) { 
+    .eye-icon {
+        position: absolute;
+        top: 19rem;
+    }
+}
+@media (max-width: 970px) { 
+    .eye-icon {
+        position: absolute;
+        right: 110px !important;
+    }
+}
+@media (max-width: 650px) { 
+    .eye-icon {
+        position: absolute;
+        right: 90px !important;
+    }
+}
+@media (max-width: 568px) {
+
+    .middle-section {
+        display: none;
+    }
+    .left-side {
+      display: none;
+    }
+
+    .row {
+        background: white;
+    }
+    .right-side {
+        width: 100%;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-radius: 0;
+        
+    }
+    .eye-icon {
+        position: absolute;
+        top: 14rem;
+        right: 100px !important;
+    }
+  }
+
+
+  @media (max-width: 410px) { 
+    .eye-icon {
+        position: absolute;
+        right: 70px !important;
     }
 }
 
