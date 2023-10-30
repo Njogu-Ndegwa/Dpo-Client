@@ -12,11 +12,13 @@ export class SignupService {
   ) { }
 
 
-  signupService(email:any, password:any, fullname:any) {
+  signupService(email:any, password:any, fullname:any, companyName:any, phoneNumber:any) {
     return this.httpClient.post(`${environment.api}signup`, {
       email: email,
       password: password,
-      full_name: fullname
+      full_name: fullname,
+      company_name: companyName,
+      phone_number: phoneNumber
     })
   }
 

@@ -19,6 +19,8 @@ export class SignUpComponent implements OnInit {
   email: any
   fullname: any
   password: any
+  submitted: boolean = false
+
   constructor(
     private router: Router,
     private signupService: SignupService,
@@ -26,10 +28,17 @@ export class SignUpComponent implements OnInit {
     private http: HttpClient
   ) {
     this.myForm = new FormGroup({
-      fullnameControl: new FormControl('', [Validators.required]),
+      fullnameControl: new FormControl('', Validators.required),
       emailFormControl: new FormControl('', [Validators.required, Validators.email]),
-      passwordControl: new FormControl('', [Validators.required]),
+      passwordControl: new FormControl('', [Validators.required, Validators.pattern(/^(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=\D*\d).{8,}$/)]),
+      businessFieldControl: new FormControl(''),
+      phoneNumberControl: new FormControl('', Validators.required),
+
     });
+  }
+
+  get passwordFormField() {
+    return this.myForm.get('passwordControl');
   }
 
 
@@ -45,15 +54,25 @@ export class SignUpComponent implements OnInit {
   }
 
   onSubmit() {
-    this.loading = true
+    this.submitted = true
     let email = this.myForm.get('emailFormControl')!.value;
     let fullname = this.myForm.get('fullnameControl')!.value;
     let password = this.myForm.get('passwordControl')!.value;
-    this.signUpServiceFunction(email, password, fullname)
+    let phoneNumber = this.myForm.get('phoneNumberControl')!.value;
+    let businessField = this.myForm.get('businessFieldControl')!.value;
+
+    console.log(phoneNumber, businessField,  '---------------64-------------')
+    if (this.myForm.valid) {
+    this.loading = true
+    this.signUpServiceFunction(email, password, fullname, businessField, phoneNumber)
+    } else {
+
+      console.log('Fill in all the required')
+    }
   }
 
-  signUpServiceFunction(email: any, password: any, fullname: any) {
-    this.signupService.signupService(email, password, fullname).subscribe((res) => {
+  signUpServiceFunction(email: any, password: any, fullname: any, businessField:any, phoneNumber:any) {
+    this.signupService.signupService(email, password, fullname, businessField, phoneNumber).subscribe((res) => {
       this.loading = false
       this.myForm.reset()
       this.router.navigate(['/verification-email-sent', {
@@ -84,8 +103,10 @@ export class SignUpComponent implements OnInit {
           let email = res.email;
           let fullname = res.name;
           let password = res.sub;
+          let businessField = ''
+          let phoneNumber = ''
           // this.loginMethod(res.email, res.sub);
-          this.signUpServiceFunction(email, password, fullname)
+          this.signUpServiceFunction(email, password, fullname, businessField, phoneNumber)
 
         }
       })

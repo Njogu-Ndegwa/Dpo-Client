@@ -106,19 +106,21 @@
             font-weight: 400;
             line-height: 136.5%; 
             letter-spacing: 2.28px;
-            margin-top: 2rem;
+
             margin-left: -1rem;
         }
     
     
         .example-form {
-            // min-width: 150px;
-            // max-width: 500px;
             width: 100%;
+            .warning-message {
+                margin-top: -2.5rem;
+                color: red;
+            }
             .eye-icon {
                 position: absolute;
                 right: 150px;
-                bottom: 11.5rem;
+                bottom: 7rem;
                 color: grey;
             }
           }
@@ -136,7 +138,6 @@
         }
     
           .login-button {
-            margin-top: 2rem;
             height: 50px;
             border: none;
             border-radius: 5px;
@@ -182,23 +183,20 @@
   @media (max-width: 1200px) {
     .eye-icon {
         position: absolute;
-        top: 24rem;
+        top: 28rem;
         // left: 17rem;
     }
   }
 
-
   @media (max-width: 950px) {
     .eye-icon {
         position: absolute;
-        top: 24rem;
         right: 100px !important;
     }
   }
   @media (max-width: 800px) {
     .eye-icon {
         position: absolute;
-        top: 24rem;
         right: 80px !important;
     }
   }
@@ -222,7 +220,6 @@
     }
     .eye-icon {
         position: absolute;
-        top: 18.5rem !important;
         left: 25rem;
     }
   }

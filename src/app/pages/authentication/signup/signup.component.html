@@ -13,7 +13,7 @@
         <div class="col-8 right-side">
             <button class="right-button" style="float: right; margin-top: 1rem;">
             </button>
-            <div  style="display: flex; margin-top: 5rem; justify-content: center;">
+            <div style="display: flex; margin-top: 5rem; justify-content: center;">
                 <div class="content">
                     <div class="heading">
                         <h3>Create Account</h3>
@@ -26,43 +26,56 @@
                         <!-- <button type="button" (click)="loginWithFacebook()" > <span class="words">Signup with Facebook </span><span style="color:#264f96; font-size: 26px; margin-left: 2rem;"><i class="fab fa-facebook-square"></i></span></button> -->
                     </div>
 
-                    <div class="middle-section">
-                        <p style="visibility: hidden;"><span>-</span>OR<span>-</span></p>
-                    </div>
-
                     <div class="form">
-                        <form [formGroup]="myForm" class="example-form">
-                            <!-- <mat-form-field class="example-full-width"> -->
-                                <input type="email" class="auth-input" formControlName="fullnameControl"
-                                    placeholder="Full Name">
-                            <!-- </mat-form-field>
-                            <mat-form-field class="example-full-width" style="padding-top: 1rem;"> -->
-                                <input type="email" class="auth-input" formControlName="emailFormControl"
-                                    placeholder="Email Address">
-                                <!-- <mat-error -->
-                                    <!-- *ngIf="myForm.get('emailFormControl')!.hasError('email') && !myForm.get('emailFormControl')!.hasError('required')">
-                                    Please enter a valid email address -->
-                                <!-- </mat-error> -->
-                                <!-- <mat-error *ngIf="myForm.get('emailFormControl')!.hasError('required')">
-                                    Email is <strong>required</strong>
-                                </mat-error> -->
-                            <!-- </mat-form-field> -->
-                            <!-- <mat-form-field style="padding-top: 1rem;" class="example-full-width">/ -->
-                                <input class="auth-input" placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="passwordControl" required>
-                                <!-- <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' :
-                                    'visibility'}}</mat-icon>
-                            </mat-form-field> -->
-                            <i (click)="hide = !hide"  class="fa fa-eye eye-icon" *ngIf="!hide"></i>
-                            <i (click)="hide = !hide"  class="fa fa-eye-slash eye-icon" *ngIf="hide"></i>
-                            <button (click)="onSubmit()" type="submit" class="login-button" style="width: 100%;">
+                        <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="example-form">
+                            <input type="email" class="auth-input" formControlName="fullnameControl"
+                                placeholder="Full Name">
+                            <p *ngIf="submitted && myForm.get('fullnameControl')!.hasError('required')"
+                                class="warning-message">
+                                Full Name is required.
+                            </p>
+                            <input type="email" class="auth-input" formControlName="phoneNumberControl"
+                                placeholder="Phone Number">
+                            <p *ngIf="submitted && myForm.get('phoneNumberControl')!.hasError('required')"
+                                class="warning-message">
+                                Phone Number is required.
+                            </p>
+                            <input type="email" class="auth-input" formControlName="businessFieldControl"
+                                placeholder="Company Name">
+
+                            <input type="email" class="auth-input" formControlName="emailFormControl"
+                                placeholder="Email Address">
+                            <p *ngIf="submitted && myForm.get('emailFormControl')!.hasError('required')"
+                                class="warning-message">
+                                Email Address is required.
+                            </p>
+                            <div *ngIf="myForm.get('emailFormControl')!.hasError('email')" class="warning-message">
+                                Invalid email address.
+                            </div>
+                            <input class="auth-input" placeholder="Password" [type]="hide ? 'password' : 'text'"
+                                formControlName="passwordControl" required>
+                            <p *ngIf="submitted && myForm.get('passwordControl')!.hasError('required')"
+                                class="warning-message">
+                                Password is required.
+                            </p>
+
+                            <p class="warning-message" *ngIf=" myForm.get('passwordControl')!.hasError('pattern')">
+                                Your Password must contain at-least one uppercase letter, one lowercase letter, one
+                                digit, one special charater and atleast 8 characters long
+                            </p>
+
+                            <i (click)="hide = !hide" class="fa fa-eye eye-icon" *ngIf="!hide"></i>
+                            <i (click)="hide = !hide" class="fa fa-eye-slash eye-icon" *ngIf="hide"></i>
+                            <button type="submit" class="login-button" style="width: 100%;">
                                 Create Account
-                                <i *ngIf="loading" style="display: inline-block; margin-left: 3rem;" class="fas fa-spinner fa-spin"></i>
+                                <i *ngIf="loading" style="display: inline-block; margin-left: 3rem;"
+                                    class="fas fa-spinner fa-spin"></i>
                             </button>
                             <div class="bottom-text">
-                                <p>Don't have an account? <span (click)="toLogin()" style="cursor: pointer;" class="sign-up-text">Sign In</span></p>
+                                <p>Don't have an account? <span (click)="toLogin()" style="cursor: pointer;"
+                                        class="sign-up-text">Sign In</span></p>
                             </div>
                         </form>
-
                     </div>
                 </div>
             </div>
