@@ -60,4 +60,7 @@ The sso_link may look something like this for a first time user, *"https://api.d
 - To redirect the user you will be provided with a payment url.
 
 
+**Adding Hire Proffesional Button to White Label**
+- I had a challenge adding a button 
+
 
